@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN" prefix="og: https://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AI 周报 · 第20周 | 2026年5月11日 - 5月17日</title>
+<meta name="description" content="Cerebras 创2026最大科技IPO；Anthropic估值冲击9000亿；GPT-5.5与Claude Mythos开启AI网安军备竞赛；SpaceX加速IPO至6月12日。本周AI行业深度分析。">
+
+<!-- OG Meta Tags -->
+<meta property="og:title" content="AI 周报 · 第20周 | Cerebras IPO引爆、Anthropic 9000亿估值、AI网安军备竞赛">
+<meta property="og:description" content="Cerebras IPO暴涨68%创2026最大科技IPO；Anthropic估值冲击9000亿美元；GPT-5.5与Claude Mythos开启AI网络安防军备竞赛；SpaceX加速IPO至6月12日。本周7条重磅新闻深度解读。">
+<meta property="og:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://83494660.github.io/AI-Weekly/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI 周报">
+<meta property="og:locale" content="zh_CN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI 周报 · 第20周 | Cerebras IPO引爆、Anthropic 9000亿估值、AI网安军备竞赛">
+<meta name="twitter:description" content="Cerebras IPO暴涨68%；Anthropic估值冲击9000亿；GPT-5.5与Claude Mythos开启AI网安竞赛。本周AI深度解读。">
+<meta name="twitter:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
+
+<!-- WeChat specific meta (approximate) -->
+<meta name="weixin-title" content="AI 周报 · 第20周 | Cerebras IPO引爆、Anthropic 9000亿估值、AI网安军备竞赛">
+<meta name="weixin-description" content="Cerebras IPO暴涨68%创2026最大科技IPO；Anthropic估值冲击9000亿美元；GPT-5.5与Claude Mythos开启AI网安军备竞赛；SpaceX加速IPO至6月12日。">
+
+<style>
+/* === Reset & Base === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  background: #0a0a0f;
+  color: #e0e0e0;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+
+/* === Container === */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* === Header === */
+.header {
+  background: linear-gradient(135deg, #ff6b35 0%, #ff3c00 50%, #cc2200 100%);
+  padding: 48px 20px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0 0 24px 24px;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 70%);
+}
+.header .week-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(8px);
+  padding: 6px 18px;
+  border-radius: 20px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 16px;
+}
+.header h1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  letter-spacing: 1px;
+}
+.header .date-range {
+  font-size: 15px;
+  color: rgba(255,255,255,0.8);
+  margin-top: 8px;
+  position: relative;
+}
+.header .subtitle {
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* === Section Title === */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+.section-title .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,107,53,0.5), transparent);
+}
+.section-title .icon { font-size: 20px; }
+
+/* === Key Data Cards === */
+.data-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.data-card {
+  background: linear-gradient(145deg, #14141f, #1a1a2e);
+  border: 1px solid rgba(255,107,53,0.15);
+  border-radius: 16px;
+  padding: 20px 14px;
+  text-align: center;
+}
+.data-card .number {
+  font-size: 24px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b35, #ffae6a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.data-card .label {
+  font-size: 12px;
+  color: #888;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* === Overview === */
+.overview-box {
+  background: linear-gradient(145deg, #14141f, #1a1a2e);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 28px;
+  font-size: 15px;
+  color: #bbb;
+  line-height: 1.8;
+}
+.overview-box strong { color: #eee; }
+
+/* === News Card === */
+.news-card {
+  background: linear-gradient(145deg, #12121c, #18182a);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+  transition: border-color 0.2s;
+}
+.news-card:hover { border-color: rgba(255,107,53,0.2); }
+
+.news-card .tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+.tag-funding { background: rgba(46, 204, 113, 0.15); color: #2ecc71; }
+.tag-model { background: rgba(52, 152, 219, 0.15); color: #3498db; }
+.tag-ipo { background: rgba(155, 89, 182, 0.15); color: #9b59b6; }
+.tag-security { background: rgba(231, 76, 60, 0.15); color: #e74c3c; }
+.tag-geopolitics { background: rgba(241, 196, 15, 0.15); color: #f1c40f; }
+.tag-competition { background: rgba(230, 126, 34, 0.15); color: #e67e22; }
+
+.news-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.news-card .meta {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 10px;
+}
+.news-card .analysis-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ff6b35;
+  margin-bottom: 6px;
+}
+.news-card .analysis {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+/* === Weekly Insight === */
+.insight-box {
+  background: linear-gradient(145deg, #1a0f0a, #1f1210);
+  border: 1px solid rgba(255,107,53,0.2);
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-bottom: 28px;
+}
+.insight-box h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ff6b35;
+  margin-bottom: 10px;
+}
+.insight-box p {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.8;
+}
+
+/* === Footer === */
+.footer {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 8px;
+}
+.footer p {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.8;
+}
+.footer .source-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.footer .source-item {
+  font-size: 11px;
+  color: #666;
+  background: rgba(255,255,255,0.03);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* === Responsive === */
+@media (max-width: 480px) {
+  .header h1 { font-size: 26px; }
+  .data-cards { grid-template-columns: 1fr; }
+  .news-card { padding: 16px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div class="week-badge">📬 WEEKLY · 第20周</div>
+    <h1>AI 周报</h1>
+    <div class="date-range">2026年5月11日 — 5月17日</div>
+    <div class="subtitle">IPO大爆炸的一周：Cerebras 敲钟、Anthropic 冲向万亿、SpaceX 定档 6 月，AI 的安全悖论也在加速上演。</div>
+  </div>
+
+  <!-- Key Data -->
+  <div class="section-title">
+    <span class="icon">📊</span>
+    <span>关键数据</span>
+    <span class="line"></span>
+  </div>
+  <div class="data-cards">
+    <div class="data-card">
+      <div class="number">$2555亿</div>
+      <div class="label">Q1全球AI融资总额<br>超越2025全年总和</div>
+    </div>
+    <div class="data-card">
+      <div class="number">$900亿</div>
+      <div class="label">Anthropic最新估值<br>正在洽谈$300亿新融资</div>
+    </div>
+    <div class="data-card">
+      <div class="number">$66亿</div>
+      <div class="label">Cerebras IPO市值<br>首日暴涨68%</div>
+    </div>
+  </div>
+
+  <!-- Overview -->
+  <div class="section-title">
+    <span class="icon">📋</span>
+    <span>本周概览</span>
+    <span class="line"></span>
+  </div>
+  <div class="overview-box">
+    <strong>资本狂飙，安全隐忧。</strong>这一周，AI 产业同时在上演两个剧本：资本市场上，Cerebras 以今年最大科技 IPO 身份登陆纳斯达克，Anthropic 传出 $9000 亿估值新融资，SpaceX 将 AI 故事带进 IPO 路演；而在技术前沿，GPT-5.5 和 Claude Mythos 正在把 AI 的网安能力推到全新高度，也把 "如何安全地部署超级智能" 这个课题摆到了白宫谈判桌上。特朗普在访华期间与中方讨论了 AI 护栏，Nvidia H200 芯片的对华出口问题悬而未决。两条主线交汇于同一个问题：AI 越强，它带来的风险越大，而市场和政策的应对速度能否跟上？
+  </div>
+
+  <!-- News Section -->
+  <div class="section-title">
+    <span class="icon">🔥</span>
+    <span>本周头条</span>
+    <span class="line"></span>
+  </div>
+
+  <!-- News 1 -->
+  <div class="news-card">
+    <span class="tag tag-ipo">💰 IPO</span>
+    <h3>Cerebras 创2026年最大科技IPO，首日暴涨68%</h3>
+    <div class="meta">来源: CNBC / NYT / TechCrunch | 5月14-15日</div>
+    <div class="analysis-label">▎ 为什么重要</div>
+    <div class="analysis">
+      芯片公司 Cerebras 以每股 $185 发行、开盘 $350、收于 $311.07 的成绩完成了 2026 年迄今最大的科技公司 IPO，募资 $55 亿，市值一度触及 $950 亿。这不仅是对 "非英伟达系" AI 芯片路线的一次市场验证，更是 2026 AI IPO 大年的"破冰船"。Cerebras 的成功上市为 SpaceX（估值 $1.75 万亿，拟 6 月 12 日上市）、OpenAI 和 Anthropic 的后续 IPO 铺平了道路。值得注意的是，Cerebras 收入高度依赖阿联酋 G42 和 MBZUAI 两家客户，未来收入多元化仍存疑。
+    </div>
+  </div>
+
+  <!-- News 2 -->
+  <div class="news-card">
+    <span class="tag tag-funding">🏦 融资</span>
+    <h3>Anthropic 洽谈$300亿融资，估值冲击$9000亿</h3>
+    <div class="meta">来源: Bloomberg / FT | 5月13日</div>
+    <div class="analysis-label">▎ 为什么重要</div>
+    <div class="analysis">
+      Anthropic 正在洽谈以 $9000 亿估值融资至少 $300 亿——而就在 2 月它刚以 $500 亿估值融了 $300 亿，与 SpaceX 签订了庞大的算力租赁协议。三个月内估值接近翻倍，显示投资者对 Claude 系列模型的信心极速膨胀。更关键的是，Anthropic 在 2025 年实现 $90 亿 ARR 后，2026 年 4 月已达 $300 亿 ARR，年化增速惊人。若此轮落地，Anthropic 将成为仅次于 OpenAI 和 SpaceX 的全球第三大 AI 公司，并向万亿估值区间迈进。AI 的"超级融资"时代正在改写创业公司的资本结构。
+    </div>
+  </div>
+
+  <!-- News 3 -->
+  <div class="news-card">
+    <span class="tag tag-geopolitics">🌍 地缘</span>
+    <h3>特朗普访华讨论AI护栏，Nvidia H200芯片对华出口悬而未决</h3>
+    <div class="meta">来源: SCMP / CFR / Bloomberg | 5月12-15日</div>
+    <div class="analysis-label">▎ 为什么重要</div>
+    <div class="analysis">
+      特朗普访华期间与习近平讨论了 AI "护栏"问题，但美国贸易代表 Greer 明确表示中美峰会并未讨论芯片出口管制。Nvidia CEO 黄仁勋随行访华的"戏剧性一幕"未能带来预期中的 H200 出口解禁突破。中方被认为"选择不买"这批芯片。这一事件意味着：美国对华 AI 芯片出口管制的"去 Biden 化"并未发生，两党在此问题上基本一致。对于中国 AI 创业公司来说，"算力受限"仍将是未来 12 个月的硬约束。而对全球 AI 半导体股价而言，地缘政治不确定性将持续存在。
+    </div>
+  </div>
+
+  <!-- News 4 -->
+  <div class="news-card">
+    <span class="tag tag-ipo">🚀 IPO</span>
+    <h3>SpaceX 加速IPO至6月12日，估值约$1.75万亿</h3>
+    <div class="meta">来源: Reuters / NY Post | 5月15日</div>
+    <div class="analysis-label">▎ 为什么重要</div>
+    <div class="analysis">
+      SpaceX 将上市时间提前至 6 月 12 日，股票代码 SPCX，计划在纳斯达克募资约 $750 亿，估值 $1.75 万亿。这一时间线比市场预期的 Musk 生日周（6 月下旬）更快。尤为值得关注的是，SpaceX 本周刚宣布将其 Colossus 1 AI 数据中心租赁给 Anthropic——在 IPO 前夕签下 AI 明星客户，向投资者讲述"我们也是 AI 故事"的叙事。SpaceX 的上市将是有史以来最大的 IPO 之一，可能超越沙特阿美，成为 AI+航天双概念的标杆性事件。
+    </div>
+  </div>
+
+  <!-- News 5 -->
+  <div class="news-card">
+    <span class="tag tag-model">🧠 模型</span>
+    <h3>GPT-5.5 成为 ChatGPT 默认模型，AI网安能力引争议</h3>
+    <div class="meta">来源: OpenAI / CNBC / AISI | 5月5-14日</div>
+    <div class="analysis-label">▎ 为什么重要</div>
+    <div class="analysis">
+      自 5 月 5 日起 GPT-5.5 成为 ChatGPT 默认模型，它也是首个在 AI 安全研究所（AISI）测试中被评价为"我们测试过的最强网络安全模型"的前沿模型，零日漏洞挖掘能力甚至超过 Claude Mythos。OpenAI 同步发布了 GPT-5.5-Cyber 版本，仅向经审核的网络安全团队开放。这一事件标志着 AI 行业的"安全悖论"进入新阶段：最先进的模型同时也是最危险的工具。白宫已召集 AI 公司讨论如何防止这些模型落入黑客和对手之手。好消息是，AI 驱动的网安防御——自动漏洞修补、入侵检测——也在以同样速度进化。
+    </div>
+  </div>
+
+  <!-- News 6 -->
+  <div class="news-card">
+    <span class="tag tag-competition">⚔️ 竞争</span>
+    <h3>SubQ 发布首款商用次二次模型，1200万Token上下文</h3>
+    <div class="meta">来源: WhatLLM.org / LLM Stats | 5月5日</div>
+    <div class="analysis-label">▎ 为什么重要</div>
+    <div class="analysis">
+      Subquadratic AI 发布了 SubQ 1M-Preview，这是首款商用"次二次"大语言模型（subquadratic LLM），原生支持 1200 万 token 上下文窗口（12M tokens），成本仅为前沿模型的五分之一。这意味着在超长文档处理、代码库级分析等场景中，一个更便宜、更高效的模型可能替代 GPT-5.5 和 Claude Opus 的位置。虽然 SubQ 目前仍处于预览阶段，但它指向了一个明确的行业趋势：当所有旗舰模型都在"更快更高更强"时，真正的颠覆可能来自完全不同架构的更优效率。
+    </div>
+  </div>
+
+  <!-- News 7 -->
+  <div class="news-card">
+    <span class="tag tag-security">🛡️ 安全</span>
+    <h3>AI 驱动的零日漏洞发现呈爆炸式增长，"Bugmageddon"来袭</h3>
+    <div class="meta">来源: MindStudio / Reddit / AISI | 5月12-16日</div>
+    <div class="analysis-label">▎ 为什么重要</div>
+    <div class="analysis">
+      安全研究人员用"Bugmageddon"来形容当前 AI 零日漏洞发现的浪潮。GPT-5.5 和 Claude Mythos 能够在几天内找到人类审计多年未发现的漏洞。英国 AI 安全研究所的评估证实了这一趋势。这并非纯粹的技术新闻——它直接影响到每一个使用 AI 的企业的安全策略：过去"人工代码审计"的安全模型已不可靠，所有关键系统都需要用 AI 扫描。与此同时，这也迫使监管加速：欧盟 AI 法案的网安条款正在被加速审议，白宫也在讨论 AI 发布前审核机制。
+    </div>
+  </div>
+
+  <!-- Weekly Insight -->
+  <div class="section-title">
+    <span class="icon">💡</span>
+    <span>本周观察</span>
+    <span class="line"></span>
+  </div>
+  <div class="insight-box">
+    <h3>当 AI 不再只是"卖模型"</h3>
+    <p>
+      这周最核心的叙事不是模型发布，而是 <strong>AI 正在变成基础设施级投资标的</strong>。Cerebras IPO、Anthropic 的 $300 亿融资轮、SpaceX 将 AI 算力写进招股书——每一件都在说：资本市场已经不再把 AI 公司当作"软件创业公司"来估值，而是当作"下一个时代的数字基础设施"来定价。与此同时，GPT-5.5-Cyber 的发布和 AI 零日漏洞的爆发提醒所有人：<strong>基础设施越重要，它的安全就越不能靠"发布后修补"来解决。</strong> 我们正在进入一个 AI 更强、更快、但也必须更负责任的新阶段。2026 年的 IPO 潮，不只是资本的盛宴，更是对 AI 行业信任机制的一次集体大考。
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>数据来源</p>
+    <div class="source-list">
+      <span class="source-item">Bloomberg</span>
+      <span class="source-item">CNBC</span>
+      <span class="source-item">Financial Times</span>
+      <span class="source-item">Reuters</span>
+      <span class="source-item">TechCrunch</span>
+      <span class="source-item">New York Times</span>
+      <span class="source-item">PitchBook</span>
+      <span class="source-item">OpenAI</span>
+      <span class="source-item">AISI</span>
+      <span class="source-item">SCMP</span>
+      <span class="source-item">CFR</span>
+    </div>
+    <p style="margin-top: 12px;">
+      AI 周报 · 2026年5月 · 由 Hermes Agent 自动生成<br>
+      <span style="font-size:11px; color:#444;">本文内容由 AI 基于公开信息整理分析，仅供参考，不构成投资建议。</span>
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
