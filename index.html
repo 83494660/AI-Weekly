@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="zh-CN" prefix="og: https://ogp.me/ns#">
 <head>
 <meta charset="UTF-8">
@@ -261,11 +262,298 @@ a { color: inherit; text-decoration: none; }
   .header h1 { font-size: 26px; }
   .data-cards { grid-template-columns: 1fr; }
   .news-card { padding: 16px; }
+=======
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="AI 周报 · 第22周 | Anthropic 估值破9000亿，代码AI化临界点">
+<meta property="og:description" content="Anthropic $900B融资、中国叫停Meta收购Manus、教皇发布AI通谕、Qwen 3.7 Max发布、56%代码由AI生成——AI行业5月最后一周的关键叙事">
+<meta property="og:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
+<meta property="og:url" content="https://83494660.github.io/AI-Weekly/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI 周报">
+<meta name="twitter:card" content="summary_large_image">
+<title>AI 周报 · 第22周</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0a0f;
+  color: #e0e0e0;
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.header {
+  background: linear-gradient(135deg, #1a0a00 0%, #2d1a00 30%, #4a2800 60%, #1a0a00 100%);
+  padding: 60px 20px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 120, 0, 0.2);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 120, 0, 0.06) 0%, transparent 50%);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+.header-content { position: relative; z-index: 1; }
+
+.header h1 {
+  font-size: 2.8em;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff6b00, #ff9500, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.header .date-range {
+  font-size: 1em;
+  color: #ff9500;
+  opacity: 0.8;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+.header .tagline {
+  margin-top: 15px;
+  font-size: 1.1em;
+  color: #bbb;
+  font-weight: 300;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px 60px;
+}
+
+/* Overview Section */
+.overview {
+  background: linear-gradient(135deg, rgba(255, 120, 0, 0.08), rgba(255, 200, 0, 0.04));
+  border: 1px solid rgba(255, 120, 0, 0.15);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 40px;
+}
+
+.overview h2 {
+  font-size: 1.3em;
+  color: #ff9500;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.overview p {
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.8;
+}
+
+/* Data Cards */
+.data-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.data-card {
+  background: linear-gradient(135deg, rgba(255, 120, 0, 0.06), rgba(255, 200, 0, 0.03));
+  border: 1px solid rgba(255, 120, 0, 0.15);
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+}
+
+.data-card .number {
+  font-size: 2em;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ff6b00, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 6px;
+}
+
+.data-card .label {
+  font-size: 0.8em;
+  color: #999;
+  font-weight: 300;
+}
+
+.data-card .sub {
+  font-size: 0.7em;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* News Items */
+.section-title {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #ff9500;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 120, 0, 0.15);
+}
+
+.news-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s;
+}
+
+.news-item:hover {
+  border-color: rgba(255, 120, 0, 0.3);
+}
+
+.news-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.tag-funding { background: rgba(0, 200, 100, 0.15); color: #00c864; border: 1px solid rgba(0, 200, 100, 0.3); }
+.tag-geopolitics { background: rgba(255, 50, 50, 0.15); color: #ff6464; border: 1px solid rgba(255, 50, 50, 0.3); }
+.tag-model { background: rgba(80, 120, 255, 0.15); color: #6088ff; border: 1px solid rgba(80, 120, 255, 0.3); }
+.tag-ethics { background: rgba(200, 100, 255, 0.15); color: #c864ff; border: 1px solid rgba(200, 100, 255, 0.3); }
+.tag-developer { background: rgba(255, 180, 0, 0.15); color: #ffb400; border: 1px solid rgba(255, 180, 0, 0.3); }
+.tag-infrastructure { background: rgba(0, 200, 255, 0.15); color: #00c8ff; border: 1px solid rgba(0, 200, 255, 0.3); }
+.tag-regulation { background: rgba(255, 80, 0, 0.15); color: #ff6622; border: 1px solid rgba(255, 80, 0, 0.3); }
+
+.news-item h3 {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: #eee;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.news-body {
+  color: #bbb;
+  font-size: 0.9em;
+  line-height: 1.8;
+}
+
+.news-body strong {
+  color: #eee;
+  font-weight: 500;
+}
+
+.why-it-matters {
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 120, 0, 0.06);
+  border-left: 3px solid #ff9500;
+  border-radius: 0 8px 8px 0;
+}
+
+.why-it-matters .label {
+  font-size: 0.75em;
+  font-weight: 700;
+  color: #ff9500;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.why-it-matters p {
+  color: #aaa;
+  font-size: 0.88em;
+  line-height: 1.7;
+}
+
+/* Weekly Observation */
+.observation {
+  margin-top: 40px;
+  background: linear-gradient(135deg, rgba(255, 120, 0, 0.1), rgba(255, 200, 0, 0.05));
+  border: 1px solid rgba(255, 120, 0, 0.2);
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.observation h2 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: #ff9500;
+  margin-bottom: 15px;
+}
+
+.observation p {
+  color: #ccc;
+  font-size: 0.95em;
+  line-height: 1.8;
+}
+
+.observation blockquote {
+  margin-top: 15px;
+  padding: 15px 20px;
+  border-left: 3px solid #ff9500;
+  font-style: italic;
+  color: #ff8800;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+/* Footer */
+.footer {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  text-align: center;
+}
+
+.footer p {
+  color: #666;
+  font-size: 0.8em;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+
+.footer a {
+  color: #ff9500;
+  text-decoration: none;
+}
+
+.footer a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.8em; }
+  .data-cards { grid-template-columns: 1fr; }
+  .news-item { padding: 20px; }
+>>>>>>> 016beb0 (AI 周报 · 第22周)
 }
 </style>
 </head>
 <body>
 
+<<<<<<< HEAD
 <div class="container">
   <!-- Header -->
   <div class="header">
@@ -321,10 +609,63 @@ a { color: inherit; text-decoration: none; }
     <div class="analysis-label">▎ 为什么重要</div>
     <div class="analysis">
       芯片公司 Cerebras 以每股 $185 发行、开盘 $350、收于 $311.07 的成绩完成了 2026 年迄今最大的科技公司 IPO，募资 $55 亿，市值一度触及 $950 亿。这不仅是对 "非英伟达系" AI 芯片路线的一次市场验证，更是 2026 AI IPO 大年的"破冰船"。Cerebras 的成功上市为 SpaceX（估值 $1.75 万亿，拟 6 月 12 日上市）、OpenAI 和 Anthropic 的后续 IPO 铺平了道路。值得注意的是，Cerebras 收入高度依赖阿联酋 G42 和 MBZUAI 两家客户，未来收入多元化仍存疑。
+=======
+<div class="header">
+  <div class="header-content">
+    <h1>🤖 AI 周报 · 第22周</h1>
+    <div class="date-range">2026年5月25日 — 5月31日</div>
+    <div class="tagline">本周关键词：估值膨胀 · 代码AI化 · 地缘博弈 · 伦理进击</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Overview -->
+  <div class="overview">
+    <h2>📋 本周概览</h2>
+    <p>
+      这是AI行业估值逻辑被彻底重新书写的一周。Anthropic以超过<strong>$900亿估值</strong>完成$300亿融资，超越OpenAI成为全球最贵AI私营公司；中国罕见出手叫停Meta对Manus的$20亿收购，地缘政治阴影笼罩AI初创生态；教皇Leo XIV发布史上首份AI通谕《Magnifica Humanitas》，全球伦理框架呼之欲出；阿里发布Qwen 3.7 Max，中国模型在Agent赛道发出最强音；与此同时，一项覆盖7,258名开发者的调查揭示，AI生成的代码占比已从28%跃升至<strong>56%</strong>——代码的AI化不再是趋势，而是现实。
+    </p>
+  </div>
+
+  <!-- Data Cards -->
+  <div class="data-cards">
+    <div class="data-card">
+      <div class="number">$900B+</div>
+      <div class="label">Anthropic 估值</div>
+      <div class="sub">超越OpenAI的$852B，史上最贵AI独角兽</div>
+    </div>
+    <div class="data-card">
+      <div class="number">56%</div>
+      <div class="label">AI生成代码占比</div>
+      <div class="sub">7258名开发者调查，同比翻倍</div>
+    </div>
+    <div class="data-card">
+      <div class="number">$300亿</div>
+      <div class="label">Anthropic 本轮融资额</div>
+      <div class="sub">年化收入将破$500亿</div>
+    </div>
+  </div>
+
+  <!-- News Items -->
+  <h2 class="section-title">📰 本周要闻</h2>
+
+  <!-- News 1 -->
+  <div class="news-item">
+    <span class="news-tag tag-funding">💰 融资</span>
+    <h3>Anthropic 拟以超 $900 亿估值完成 $300 亿融资，超越 OpenAI</h3>
+    <div class="news-body">
+      Anthropic 即将完成最新一轮融资，金额超过 <strong>$300 亿</strong>，估值高达 <strong>$900 亿以上</strong>，超越 OpenAI 的 $852 亿估值，成为全球最值钱的私人AI公司。年化收入预计将在六月底突破 <strong>$500 亿</strong>，较三个月前的 $380 亿估值翻倍不止。Google 已表示有意追加最高 $400 亿投资。
+    </div>
+    <div class="why-it-matters">
+      <div class="label">🎯 为什么重要</div>
+      <p>这轮融资彻底改写了AI赛道的估值坐标。三个月内估值从 $380B 翻到 $900B+，意味着资本市场对AI单一赛道的风险定价已完全失效——要么泡沫，要么范式转移。更关键的是，当一家公司的估值超过全球大多数上市科技公司时，Anthropic 和 OpenAI 围绕着"谁更贵"的竞赛正在把整个行业的退出逻辑从IPO变成"永远不上市"。</p>
+>>>>>>> 016beb0 (AI 周报 · 第22周)
     </div>
   </div>
 
   <!-- News 2 -->
+<<<<<<< HEAD
   <div class="news-card">
     <span class="tag tag-funding">🏦 融资</span>
     <h3>Anthropic 洽谈$300亿融资，估值冲击$9000亿</h3>
@@ -332,10 +673,22 @@ a { color: inherit; text-decoration: none; }
     <div class="analysis-label">▎ 为什么重要</div>
     <div class="analysis">
       Anthropic 正在洽谈以 $9000 亿估值融资至少 $300 亿——而就在 2 月它刚以 $500 亿估值融了 $300 亿，与 SpaceX 签订了庞大的算力租赁协议。三个月内估值接近翻倍，显示投资者对 Claude 系列模型的信心极速膨胀。更关键的是，Anthropic 在 2025 年实现 $90 亿 ARR 后，2026 年 4 月已达 $300 亿 ARR，年化增速惊人。若此轮落地，Anthropic 将成为仅次于 OpenAI 和 SpaceX 的全球第三大 AI 公司，并向万亿估值区间迈进。AI 的"超级融资"时代正在改写创业公司的资本结构。
+=======
+  <div class="news-item">
+    <span class="news-tag tag-geopolitics">🌏 地缘政治</span>
+    <h3>中国叫停 Meta 对 Manus 的 $20 亿收购，Manus 创始人面临 $10 亿反向融资</h3>
+    <div class="news-body">
+      中国国家发改委本周下令叫停 Meta 对 AI Agent 创业公司 Manus 的 <strong>$20 亿</strong>收购交易，要求撤回。Manus 创始团队正考虑以约 <strong>$10 亿</strong>估值进行反向融资以回购 Meta 持有的股份。此举被视为北京遏制AI技术外流的最强硬举措。
+    </div>
+    <div class="why-it-matters">
+      <div class="label">🎯 为什么重要</div>
+      <p>这是地缘政治直接打击AI跨境并购的标志性事件。"新加坡漂洗"模式——中国初创公司迁至新加坡以规避中美审查——宣告终结。这件事的影响远超 Manus 个案：它向整个中国创业生态发出了明确信号，AI技术转让将受到前所未有的管控。对于全球VC而言，这意味着中国AI资产的退出通道正在收窄。</p>
+>>>>>>> 016beb0 (AI 周报 · 第22周)
     </div>
   </div>
 
   <!-- News 3 -->
+<<<<<<< HEAD
   <div class="news-card">
     <span class="tag tag-geopolitics">🌍 地缘</span>
     <h3>特朗普访华讨论AI护栏，Nvidia H200芯片对华出口悬而未决</h3>
@@ -343,10 +696,22 @@ a { color: inherit; text-decoration: none; }
     <div class="analysis-label">▎ 为什么重要</div>
     <div class="analysis">
       特朗普访华期间与习近平讨论了 AI "护栏"问题，但美国贸易代表 Greer 明确表示中美峰会并未讨论芯片出口管制。Nvidia CEO 黄仁勋随行访华的"戏剧性一幕"未能带来预期中的 H200 出口解禁突破。中方被认为"选择不买"这批芯片。这一事件意味着：美国对华 AI 芯片出口管制的"去 Biden 化"并未发生，两党在此问题上基本一致。对于中国 AI 创业公司来说，"算力受限"仍将是未来 12 个月的硬约束。而对全球 AI 半导体股价而言，地缘政治不确定性将持续存在。
+=======
+  <div class="news-item">
+    <span class="news-tag tag-model">🧠 模型</span>
+    <h3>阿里发布 Qwen 3.7 Max：专为Agent时代打造的闭源推理模型</h3>
+    <div class="news-body">
+      阿里巴巴在5月20日的云栖峰会上正式发布 <strong>Qwen 3.7 Max</strong>，这是一款<b>闭源权重</b>的推理模型，专为Agent生态打造，支持最长 <strong>35 小时</strong>的自主运行。在 Chatbot Arena 文本榜位列第13，数学第7、专家级提示第9。同时发布的还有面向社区的 Qwen 3.7 Plus Preview。
+    </div>
+    <div class="why-it-matters">
+      <div class="label">🎯 为什么重要</div>
+      <p>Qwen 3.7 Max 是阿里迄今为止最强模型，但选择闭源引发了开源社区的争论。它的战略意义不在单纯的性能对比，而在于"专为Agent设计"这个定位——35小时的自主运行能力意味着AI Agent从"回答问题"进化到了"执行长期任务"。中国模型公司正在从追赶参数指标转向定义Agent时代的产品形态。</p>
+>>>>>>> 016beb0 (AI 周报 · 第22周)
     </div>
   </div>
 
   <!-- News 4 -->
+<<<<<<< HEAD
   <div class="news-card">
     <span class="tag tag-ipo">🚀 IPO</span>
     <h3>SpaceX 加速IPO至6月12日，估值约$1.75万亿</h3>
@@ -354,10 +719,22 @@ a { color: inherit; text-decoration: none; }
     <div class="analysis-label">▎ 为什么重要</div>
     <div class="analysis">
       SpaceX 将上市时间提前至 6 月 12 日，股票代码 SPCX，计划在纳斯达克募资约 $750 亿，估值 $1.75 万亿。这一时间线比市场预期的 Musk 生日周（6 月下旬）更快。尤为值得关注的是，SpaceX 本周刚宣布将其 Colossus 1 AI 数据中心租赁给 Anthropic——在 IPO 前夕签下 AI 明星客户，向投资者讲述"我们也是 AI 故事"的叙事。SpaceX 的上市将是有史以来最大的 IPO 之一，可能超越沙特阿美，成为 AI+航天双概念的标杆性事件。
+=======
+  <div class="news-item">
+    <span class="news-tag tag-developer">💻 开发者生态</span>
+    <h3>调查：56% 的代码由 AI 生成，但 96% 的开发者不完全信任 AI 代码</h3>
+    <div class="news-body">
+      2026年Web开发者AI调查（7,258名开发者）显示，AI生成代码占比从去年的<strong>28% 翻倍至 56%</strong>。"几乎全部由AI生成"已成为最大单一用户群。但 <strong>96% 的开发者</strong>表示不完全信任AI生成代码的功能正确性——然而其中只有 48% 的人会持续验证代码质量。开发者平均仍将 24% 的时间花在"苦活"上，只是从写代码变成了验证AI代码。
+    </div>
+    <div class="why-it-matters">
+      <div class="label">🎯 为什么重要</div>
+      <p>56% 是一个临界点——当AI生成代码超过一半时，软件开发的工作流范式已被不可逆地改变。但 96% 不信任与 48% 验证之间的巨大鸿沟才是真正的行业风险：我们在以史无前例的速度生产代码，却可能以同样速度积累技术债务。信任缺口是2026年AI编码工具面临的核心矛盾，这个矛盾催生了"AI代码质量治理"这个全新的细分赛道。</p>
+>>>>>>> 016beb0 (AI 周报 · 第22周)
     </div>
   </div>
 
   <!-- News 5 -->
+<<<<<<< HEAD
   <div class="news-card">
     <span class="tag tag-model">🧠 模型</span>
     <h3>GPT-5.5 成为 ChatGPT 默认模型，AI网安能力引争议</h3>
@@ -365,10 +742,22 @@ a { color: inherit; text-decoration: none; }
     <div class="analysis-label">▎ 为什么重要</div>
     <div class="analysis">
       自 5 月 5 日起 GPT-5.5 成为 ChatGPT 默认模型，它也是首个在 AI 安全研究所（AISI）测试中被评价为"我们测试过的最强网络安全模型"的前沿模型，零日漏洞挖掘能力甚至超过 Claude Mythos。OpenAI 同步发布了 GPT-5.5-Cyber 版本，仅向经审核的网络安全团队开放。这一事件标志着 AI 行业的"安全悖论"进入新阶段：最先进的模型同时也是最危险的工具。白宫已召集 AI 公司讨论如何防止这些模型落入黑客和对手之手。好消息是，AI 驱动的网安防御——自动漏洞修补、入侵检测——也在以同样速度进化。
+=======
+  <div class="news-item">
+    <span class="news-tag tag-ethics">⚖️ 伦理</span>
+    <h3>教皇 Leo XIV 发布史上首份AI通谕《Magnifica Humanitas》</h3>
+    <div class="news-body">
+      教皇 Leo XIV 于5月25日发表其任内首份通谕《Magnifica Humanitas》，主题为<b>人工智能与人类尊严</b>。这是天主教历史上首份专门针对AI的教宗通谕，教皇本人出席发布会，并邀请了全球领先AI公司的创始人共同参与。通谕呼吁保护人类声音和面貌的独特性、劳动者的尊严以及儿童免受AI操控。
+    </div>
+    <div class="why-it-matters">
+      <div class="label">🎯 为什么重要</div>
+      <p>当全球最具影响力的精神领袖将AI伦理提升到教义层面，这不仅仅是宗教事件——它正在塑造全球超过13亿天主教徒及更广泛人群对AI的认知框架。通谕的发布时机也耐人寻味：恰好在Anthropic估值暴涨和AI加速渗透工作的同一周。当华尔街疯狂加注AI时，梵蒂冈提醒我们AI的终极问题不是"能否做到"，而是"是否该做"。</p>
+>>>>>>> 016beb0 (AI 周报 · 第22周)
     </div>
   </div>
 
   <!-- News 6 -->
+<<<<<<< HEAD
   <div class="news-card">
     <span class="tag tag-competition">⚔️ 竞争</span>
     <h3>SubQ 发布首款商用次二次模型，1200万Token上下文</h3>
@@ -376,10 +765,22 @@ a { color: inherit; text-decoration: none; }
     <div class="analysis-label">▎ 为什么重要</div>
     <div class="analysis">
       Subquadratic AI 发布了 SubQ 1M-Preview，这是首款商用"次二次"大语言模型（subquadratic LLM），原生支持 1200 万 token 上下文窗口（12M tokens），成本仅为前沿模型的五分之一。这意味着在超长文档处理、代码库级分析等场景中，一个更便宜、更高效的模型可能替代 GPT-5.5 和 Claude Opus 的位置。虽然 SubQ 目前仍处于预览阶段，但它指向了一个明确的行业趋势：当所有旗舰模型都在"更快更高更强"时，真正的颠覆可能来自完全不同架构的更优效率。
+=======
+  <div class="news-item">
+    <span class="news-tag tag-infrastructure">🏗️ 基础设施</span>
+    <h3>Epoch AI：前沿实验室算力不足全球30%，但五年后可能吞噬80%</h3>
+    <div class="news-body">
+      Epoch AI 最新研究显示，OpenAI、Anthropic、xAI、Google DeepMind、Meta 等顶级AI实验室目前仅占全球AI算力供给的 <strong>不到30%</strong>。但随着年化3.4倍的算力堆叠增速，五年内这一比例可能飙升至 <strong>80%</strong>。研究同时发现，高带宽内存（HBM）已从AI芯片组件成本的52%升至63%。
+    </div>
+    <div class="why-it-matters">
+      <div class="label">🎯 为什么重要</div>
+      <p>这组数据揭示了AI行业正在发生的"算力寡头化"——少数几家公司的算力增长速度远超全球供给增长。如果算力确实是AI的"石油"和"护城河"，那么未来五年内，AI市场的竞争将从模型性能的比拼彻底转向"谁能建更大数据中心"的基建竞赛。HBM成本占比持续攀升也意味着：英伟达的挑战不来自AMD，而来自内存供应链本身的瓶颈。</p>
+>>>>>>> 016beb0 (AI 周报 · 第22周)
     </div>
   </div>
 
   <!-- News 7 -->
+<<<<<<< HEAD
   <div class="news-card">
     <span class="tag tag-security">🛡️ 安全</span>
     <h3>AI 驱动的零日漏洞发现呈爆炸式增长，"Bugmageddon"来袭</h3>
@@ -401,10 +802,40 @@ a { color: inherit; text-decoration: none; }
     <p>
       这周最核心的叙事不是模型发布，而是 <strong>AI 正在变成基础设施级投资标的</strong>。Cerebras IPO、Anthropic 的 $300 亿融资轮、SpaceX 将 AI 算力写进招股书——每一件都在说：资本市场已经不再把 AI 公司当作"软件创业公司"来估值，而是当作"下一个时代的数字基础设施"来定价。与此同时，GPT-5.5-Cyber 的发布和 AI 零日漏洞的爆发提醒所有人：<strong>基础设施越重要，它的安全就越不能靠"发布后修补"来解决。</strong> 我们正在进入一个 AI 更强、更快、但也必须更负责任的新阶段。2026 年的 IPO 潮，不只是资本的盛宴，更是对 AI 行业信任机制的一次集体大考。
     </p>
+=======
+  <div class="news-item">
+    <span class="news-tag tag-regulation">📜 监管</span>
+    <h3>Anthropic 诉五角大楼案持续发酵：法院裁定暂停"供应链风险"认定</h3>
+    <div class="news-body">
+      联邦法院本周裁定暂停五角大楼对Anthropic的 <strong>"供应链风险"认定</strong>，法官认定国防部的做法"很可能违宪"。该认定源于Anthropic拒绝在军事用途中允许大规模监控美国人及无人类监督的自主致命武器。法院的禁令意味着在诉讼期间Anthropic可继续与联邦机构合作，但该诉讼仍在进行中。
+    </div>
+    <div class="why-it-matters">
+      <div class="label">🎯 为什么重要</div>
+      <p>这个案件正在成为AI伦理边界的一个分水岭测试。美国政府试图用"供应链安全"这个工具来惩罚不配合军事用途的AI公司——这实际上是给所有AI公司的一个信号：要么接受军事用途要求，要么被排除在联邦市场之外。Anthropic的立场（可以用于情报分析但不用于自主武器/大规模监控）代表了一种中间路线，如果最终胜诉，将为整个行业建立先例。</p>
+    </div>
+  </div>
+
+  <!-- Weekly Observation -->
+  <div class="observation">
+    <h2>🔍 本周观察</h2>
+    <p>
+      这一周的叙事可以用一个词概括：<strong>「错位」</strong>。
+    </p>
+    <p>
+      资本市场疯狂押注AI——Anthropic 的估值在三个月翻倍至 $900B，年化收入曲线几乎垂直——但与此同时，56%的代码由AI编写却只有48%的人去验证、Anthropic一边融资$300亿一边在法庭上与美国政府对抗、教皇发布通谕呼吁保护人类尊严而企业却在加速裁员替换。这些矛盾不是巧合，它们是同一件事的不同侧面：AI已经走出了实验室和PPT，正在以远超社会制度适应速度的方式进入每一个行业。
+    </p>
+    <p>
+      最需要关注的信号来自 Epoch AI 的算力数据：当全球AI算力集中在不到5家公司的控制下，且这一比例将从30%增长到80%时，我们实际上在见证一个比"垄断"更深刻的转变——"算力主权"的集中。理解谁控制算力，比理解谁的模型更强，更能预测AI行业的走向。
+    </p>
+    <blockquote>
+      "华尔街赌的是速度，梵蒂冈问的是代价，北京争的是控制。AI行业的三角博弈正在决定下一个十年的走向。"
+    </blockquote>
+>>>>>>> 016beb0 (AI 周报 · 第22周)
   </div>
 
   <!-- Footer -->
   <div class="footer">
+<<<<<<< HEAD
     <p>数据来源</p>
     <div class="source-list">
       <span class="source-item">Bloomberg</span>
@@ -424,6 +855,13 @@ a { color: inherit; text-decoration: none; }
       <span style="font-size:11px; color:#444;">本文内容由 AI 基于公开信息整理分析，仅供参考，不构成投资建议。</span>
     </p>
   </div>
+=======
+    <p>数据来源：Bloomberg, CNBC, Reuters, The New York Times, Epoch AI, SonarSource, The Vatican</p>
+    <p>报告生成于 2026年5月25日 09:00 CST · 由 Hermes Agent 自动编排</p>
+    <p><a href="https://83494660.github.io/AI-Weekly/">https://83494660.github.io/AI-Weekly/</a></p>
+  </div>
+
+>>>>>>> 016beb0 (AI 周报 · 第22周)
 </div>
 
 </body>
