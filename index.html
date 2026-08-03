@@ -1,397 +1,367 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 周报 · 第22周 | Anthropic估值近万亿，Claude Opus 4.8发布</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 周报 · 第31周 | 英伟达2500亿担保 · 开源权重保卫战 · AI资本开支失控</title>
+<meta name="description" content="英伟达拟为OpenAI数据中心担保2500亿美元融资；Kimi K3开源引发制裁威胁与硅谷联署反击；微软Meta资本开支再创新高；千名AI员工联署呼吁放缓。">
+<meta property="og:title" content="AI 周报 · 第31周 | 英伟达2500亿担保 · 开源权重保卫战 · AI资本开支失控">
+<meta property="og:description" content="英伟达拟为OpenAI数据中心担保2500亿美元融资；Kimi K3开源引发制裁威胁与硅谷联署反击；微软Meta资本开支再创新高；千名AI员工联署呼吁放缓。">
+<meta property="og:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
+<meta property="og:url" content="https://83494660.github.io/AI-Weekly/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI 周报">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0e14;
+    color: #d5dce6;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", "Segoe UI", sans-serif;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
 
-    <!-- OG Meta Tags -->
-    <meta property="og:title" content="AI 周报 · 第22周 | Anthropic估值近万亿，Claude Opus 4.8发布">
-    <meta property="og:description" content="Anthropic完成650亿美元H轮融资估值9650亿美元超越OpenAI；Claude Opus 4.8发布，Agent能力全面超越GPT-5.5；Intuit裁员3000人；阶跃星辰开源Step 3.7 Flash；腾讯混元发布Hy-Memory记忆插件。">
-    <meta property="og:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
-    <meta property="og:url" content="https://83494660.github.io/AI-Weekly/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="zh_CN">
+  /* ===== Hero ===== */
+  .header {
+    position: relative;
+    background: linear-gradient(135deg, #ff4500 0%, #ff6a00 30%, #ff8c00 60%, #ffa500 100%);
+    border-radius: 18px;
+    padding: 52px 40px 44px;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 32px;
+    box-shadow: 0 12px 40px rgba(255, 106, 0, 0.25);
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60%; left: -20%;
+    width: 140%; height: 220%;
+    background:
+      radial-gradient(ellipse at 20% 30%, rgba(255,255,255,0.18) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(255,255,255,0.10) 0%, transparent 45%);
+    animation: glow 8s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { transform: translateY(-2%) scale(1); }
+    to   { transform: translateY(3%) scale(1.06); }
+  }
+  .header > * { position: relative; }
+  .header-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    padding: 6px 18px;
+    border-radius: 24px;
+    margin-bottom: 18px;
+    backdrop-filter: blur(4px);
+  }
+  .header h1 {
+    font-size: 44px;
+    font-weight: 900;
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(180, 60, 0, 0.35);
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+  .header .subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.88);
+    letter-spacing: 3px;
+    margin-top: 14px;
+    font-weight: 500;
+  }
+  .header .date-range {
+    display: inline-block;
+    margin-top: 20px;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid rgba(255,255,255,0.28);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+  }
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI 周报 · 第22周 | Anthropic估值近万亿，Claude Opus 4.8发布">
-    <meta name="twitter:description" content="Anthropic完成650亿美元H轮融资估值9650亿美元超越OpenAI；Claude Opus 4.8发布；Intuit裁员3000人。">
-    <meta name="twitter:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
+  /* ===== Section titles ===== */
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 40px 0 20px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .section-title .line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #ff6b35, transparent);
+  }
+  .section-title .line-left {
+    background: linear-gradient(270deg, #ff6b35, transparent);
+  }
 
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* ===== Overview ===== */
+  .overview {
+    background: #121824;
+    border: 1px solid #1e2937;
+    border-radius: 14px;
+    padding: 26px 28px;
+    font-size: 15px;
+    color: #b8c2cf;
+  }
+  .overview strong { color: #ffb37a; }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
-            background: #0a0a0f;
-            color: #e4e4e7;
-            line-height: 1.6;
-        }
+  /* ===== Data cards ===== */
+  .data-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 4px;
+  }
+  .data-card {
+    background: linear-gradient(160deg, #14141f 0%, #1a1a2e 100%);
+    border: 1px solid #232338;
+    border-radius: 12px;
+    padding: 24px 20px;
+    transition: transform .25s ease, border-color .25s ease;
+  }
+  .data-card:hover { transform: translateY(-4px); border-color: #ff6b35; }
+  .data-card .num {
+    font-size: 34px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ff6b35, #ffa53e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.15;
+  }
+  .data-card .label { font-size: 13px; color: #8a94a6; margin-top: 10px; line-height: 1.6; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  /* ===== News items ===== */
+  .news-item {
+    background: #0f0f18;
+    border: 1px solid #1f2431;
+    border-left: 3px solid #ff6b35;
+    border-radius: 12px;
+    padding: 26px 28px;
+    margin-bottom: 20px;
+    transition: border-color .25s ease;
+  }
+  .news-item:hover { border-color: #333b4d; }
+  .news-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 3px 12px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+  }
+  .news-title { font-size: 19px; font-weight: 800; color: #fff; line-height: 1.45; }
+  .news-source { font-size: 12.5px; color: #6b7688; margin-top: 8px; }
+  .news-body { font-size: 14.5px; color: #b8c2cf; margin-top: 14px; }
+  .news-body strong { color: #ffb37a; }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #ff4500 0%, #ff6b35 30%, #ff8c00 60%, #ffa500 100%);
-            padding: 60px 0 50px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .header h1 {
-            font-size: 2.8em;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: 2px;
-            text-shadow: 0 2px 20px rgba(255,69,0,0.3);
-            position: relative;
-        }
-        .header .subtitle {
-            font-size: 1.1em;
-            color: rgba(255,255,255,0.9);
-            margin-top: 10px;
-            font-weight: 400;
-            position: relative;
-        }
-        .header .date-range {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 6px 20px;
-            border-radius: 20px;
-            font-size: 0.95em;
-            color: #fff;
-            margin-top: 12px;
-            position: relative;
-        }
+  /* tag colors */
+  .tag-investment { background: rgba(34,197,94,0.15); color: #4ade80; }
+  .tag-model      { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .tag-open-source{ background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .tag-geopolitics{ background: rgba(0,188,212,0.15); color: #00bcd4; }
+  .tag-funding    { background: rgba(16,185,129,0.15); color: #34d399; }
+  .tag-big-tech   { background: rgba(139,92,246,0.15); color: #a78bfa; }
+  .tag-safety     { background: rgba(255,23,68,0.15); color: #ff1744; }
+  .tag-product    { background: rgba(14,165,233,0.15); color: #38bdf8; }
 
-        /* Section */
-        .section {
-            padding: 40px 0;
-        }
-        .section-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #ff6b35;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-title::before {
-            content: '';
-            display: inline-block;
-            width: 4px;
-            height: 24px;
-            background: linear-gradient(180deg, #ff4500, #ff8c00);
-            border-radius: 2px;
-        }
+  /* ===== Observation ===== */
+  .observation {
+    background: linear-gradient(135deg, #0f0f18 0%, #1a0f0a 100%);
+    border: 1px solid #3a2515;
+    border-radius: 14px;
+    padding: 30px 30px;
+  }
+  .observation h3 { font-size: 20px; font-weight: 800; color: #ffae6a; margin-bottom: 16px; letter-spacing: 1px; }
+  .observation p { font-size: 14.5px; color: #d0c0b0; margin-bottom: 14px; }
+  .observation p:last-child { margin-bottom: 0; }
+  .observation strong { color: #ffb37a; }
+  .observation .thesis {
+    border-left: 3px solid #ff6b35;
+    padding: 14px 18px;
+    background: rgba(255,107,53,0.06);
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 16px;
+    font-size: 15px;
+    color: #ffe3cc;
+  }
 
-        /* Overview */
-        .overview {
-            background: linear-gradient(135deg, rgba(255,69,0,0.08), rgba(255,140,0,0.05));
-            border: 1px solid rgba(255,69,0,0.15);
-            border-radius: 16px;
-            padding: 28px 32px;
-            margin-bottom: 32px;
-            font-size: 1.05em;
-            line-height: 1.8;
-            color: #d4d4d8;
-        }
+  /* ===== Footer ===== */
+  .footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid #1c2230;
+    font-size: 12.5px;
+    color: #5d6779;
+    text-align: center;
+    line-height: 2;
+  }
+  .footer a { color: #ff8c5a; text-decoration: none; }
 
-        /* Data Cards */
-        .data-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-            margin-bottom: 40px;
-        }
-        .data-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 14px;
-            padding: 24px 20px;
-            text-align: center;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .data-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255,69,0,0.3);
-        }
-        .data-card .number {
-            font-size: 2.2em;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ff4500, #ff8c00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .data-card .label {
-            font-size: 0.85em;
-            color: #a1a1aa;
-            margin-top: 8px;
-            line-height: 1.4;
-        }
-
-        /* News Items */
-        .news-item {
-            background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-            border: 1px solid rgba(255,255,255,0.06);
-            border-radius: 14px;
-            padding: 28px 28px;
-            margin-bottom: 20px;
-            transition: border-color 0.2s;
-        }
-        .news-item:hover {
-            border-color: rgba(255,69,0,0.2);
-        }
-        .news-tag {
-            display: inline-block;
-            font-size: 0.75em;
-            font-weight: 600;
-            padding: 3px 12px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            letter-spacing: 0.5px;
-        }
-        .tag-model { background: rgba(59,130,246,0.15); color: #60a5fa; }
-        .tag-funding { background: rgba(16,185,129,0.15); color: #34d399; }
-        .tag-big-tech { background: rgba(139,92,246,0.15); color: #a78bfa; }
-        .tag-open-source { background: rgba(245,158,11,0.15); color: #fbbf24; }
-        .tag-regulation { background: rgba(239,68,68,0.15); color: #f87171; }
-        .tag-layoff { background: rgba(236,72,153,0.15); color: #f472b6; }
-        .tag-product { background: rgba(14,165,233,0.15); color: #38bdf8; }
-
-        .news-title {
-            font-size: 1.2em;
-            font-weight: 700;
-            color: #f4f4f5;
-            margin-bottom: 12px;
-            line-height: 1.5;
-        }
-        .news-analysis {
-            font-size: 0.95em;
-            color: #a1a1aa;
-            line-height: 1.8;
-        }
-        .news-analysis strong {
-            color: #d4d4d8;
-        }
-        .news-source {
-            font-size: 0.8em;
-            color: #52525b;
-            margin-top: 12px;
-            border-top: 1px solid rgba(255,255,255,0.04);
-            padding-top: 10px;
-        }
-
-        /* Observation */
-        .observation {
-            background: linear-gradient(135deg, rgba(255,69,0,0.08), rgba(255,140,0,0.03));
-            border: 1px solid rgba(255,69,0,0.15);
-            border-radius: 16px;
-            padding: 32px;
-            margin-top: 8px;
-            position: relative;
-        }
-        .observation::before {
-            content: '"';
-            font-size: 4em;
-            color: rgba(255,69,0,0.2);
-            position: absolute;
-            top: 10px;
-            left: 18px;
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-        .observation p {
-            font-size: 1.05em;
-            line-height: 1.9;
-            color: #d4d4d8;
-            padding-left: 20px;
-        }
-
-        /* Footer */
-        .footer {
-            border-top: 1px solid rgba(255,255,255,0.06);
-            padding: 30px 0;
-            margin-top: 10px;
-            text-align: center;
-            font-size: 0.8em;
-            color: #52525b;
-        }
-        .footer a {
-            color: #71717a;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            color: #a1a1aa;
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            .header h1 { font-size: 2em; }
-            .data-cards { grid-template-columns: 1fr; }
-            .header { padding: 40px 0 35px; }
-            .news-item { padding: 20px; }
-            .overview { padding: 20px; }
-            .observation { padding: 24px; }
-        }
-    </style>
+  /* ===== Responsive ===== */
+  @media (max-width: 768px) {
+    .data-cards { grid-template-columns: 1fr; }
+    .header { padding: 40px 24px 36px; }
+    .header h1 { font-size: 32px; }
+    .header .subtitle { font-size: 13px; letter-spacing: 2px; }
+    .news-item { padding: 22px 20px; }
+    .news-title { font-size: 17px; }
+  }
+  @media (max-width: 480px) {
+    .header h1 { font-size: 27px; }
+    .data-card .num { font-size: 28px; }
+  }
+</style>
 </head>
 <body>
-
-<!-- Header -->
-<div class="header">
-    <div class="container">
-        <h1>AI 周报 · 第22周</h1>
-        <div class="subtitle">本周叙事：Anthropic估值逼近万亿美元，AI行业格局彻底重写</div>
-        <div class="date-range">2026年5月25日 — 5月31日</div>
-    </div>
-</div>
-
-<!-- Content -->
 <div class="container">
 
-    <!-- Overview -->
-    <div class="section">
-        <div class="overview">
-            本周是2026年以来AI行业最具标志性的一周。Anthropic以650亿美元H轮融资震惊市场，投后估值9650亿美元正式超越OpenAI，同时发布Claude Opus 4.8，Agent能力首次全面压制GPT-5.5。OpenAI Foundation宣布投入2.5亿美元应对AI就业冲击，而Intuit同一天裁员3000人"为AI让路"，讽刺感拉满。中国这边，阶跃星辰开源Step 3.7 Flash，腾讯混元推出Hy-Memory记忆插件——Agent长期记忆成为行业新焦点。这场竞赛正在从"谁的模型更聪明"转向"谁的Agent能真正干活"。
-        </div>
+  <!-- ============ HERO ============ -->
+  <div class="header">
+    <div class="header-badge">WEEKLY REPORT · 第31周</div>
+    <h1>AI 周报 · 第31周</h1>
+    <div class="subtitle">英伟达当起"银行家" · 开源权重保卫战 · AI资本开支失控</div>
+    <div class="date-range">📅 2026年7月27日 — 8月2日</div>
+  </div>
+
+  <!-- ============ 本周概览 ============ -->
+  <div class="section-title"><span class="line line-left"></span>本周概览<span class="line"></span></div>
+  <div class="overview">
+    本周，AI行业的目光从"谁的模型更强"转向<strong>"谁来买单、谁能控制"</strong>。英伟达被曝拟为OpenAI的10GW数据中心提供高达<strong>2500亿美元</strong>融资担保——卖铲人第一次要当银行家；微软、Meta财报双双刷新资本开支纪录，股价却用脚投票；Kimi K3开源权重落地当天，华盛顿的制裁威胁与硅谷的开源保卫战同时升级；超过<strong>1000名</strong>AI从业者联署呼吁政府为AI"踩刹车"。模型军备竞赛并未停歇——Claude Opus 5以一半成本逼近前沿——但决定行业走向的，已经变成资本、监管与安全的三重博弈。
+  </div>
+
+  <!-- ============ 数据卡片 ============ -->
+  <div class="section-title"><span class="line line-left"></span>关键数据<span class="line"></span></div>
+  <div class="data-cards">
+    <div class="data-card">
+      <div class="num">$2500亿</div>
+      <div class="label">英伟达拟为OpenAI 10GW数据中心提供的融资担保规模，项目总投入或超$5000亿（另有最高$3500亿芯片采购融资在谈）</div>
     </div>
-
-    <!-- Data Cards -->
-    <div class="data-cards">
-        <div class="data-card">
-            <div class="number">$9650亿</div>
-            <div class="label">Anthropic H轮投后估值<br>超越OpenAI，登顶全球最高</div>
-        </div>
-        <div class="data-card">
-            <div class="number">$650亿</div>
-            <div class="label">Anthropic H轮融资规模<br>单轮融资创AI行业纪录</div>
-        </div>
-        <div class="data-card">
-            <div class="number">470亿</div>
-            <div class="label">Anthropic年化运营收入<br>较2月增长50%，仅用3个月</div>
-        </div>
+    <div class="data-card">
+      <div class="num">$410亿</div>
+      <div class="label">微软单季资本开支（同比+70%）；Meta同日把2026年资本开支指引下限上调至$1300亿，营业利润率却从43%跌至31%</div>
     </div>
-
-    <!-- News Items -->
-    <div class="section">
-        <div class="section-title">本周要闻</div>
-
-        <!-- News 1 -->
-        <div class="news-item">
-            <span class="news-tag tag-funding">融资</span>
-            <div class="news-title">Anthropic完成650亿美元H轮融资，投后估值9650亿美元登顶全球AI榜首</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>这是AI行业迄今为止最大单轮融资，也是估值格局的根本性翻转。三个月前Anthropic估值还只有3800亿美元，如今9650亿美元一举超过OpenAI的8520亿美元。更关键的是融资结构：美光、三星、SK海力士三家存储巨头首次以战略基础设施伙伴身份加入，AWS追加50亿美元，与谷歌和博通签署5GW TPU协议，与SpaceX达成GPU合作——Anthropic正在构建一个横跨云（AWS/Google/Azure）、芯（三家存储厂）、能（5GW级算力）的垂直生态。年化营收470亿美元、85%来自企业客户，说明企业级AI市场远比消费级更愿意买单。
-            </div>
-            <div class="news-source">来源：Anthropic官方公告 / Reuters / 新浪财经</div>
-        </div>
-
-        <!-- News 2 -->
-        <div class="news-item">
-            <span class="news-tag tag-model">模型</span>
-            <div class="news-title">Claude Opus 4.8发布：Super-Agent基准全面超越GPT-5.5，动态工作流支持数百个子Agent并行</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>Opus 4.8不仅是性能升级，更标志着AI竞争从"跑分"进入"能干活"阶段。在Super-Agent基准测试中，Opus 4.8是唯一能端到端完成所有案例的模型，浏览器Agent准确率达84%超越GPT-5.5。最亮眼的杀手案例：一位开发者用Claude Code将Bun从Zig移植到Rust，11天内处理约75万行代码，测试通过率依然维持99.8%。"动态工作流"功能允许单次对话调度数百个并行子Agent——这意味着Agent终于可以处理真正大规模、跨文件、长周期的工程任务了。同时，Fast Mode成本降至原来的三分之一，Anthropic在"提价"的行业趋势中逆势"降价"，意在抢占企业端部署量。
-            </div>
-            <div class="news-source">来源：Anthropic官方博客 / AI Toolly / 知乎</div>
-        </div>
-
-        <!-- News 3 -->
-        <div class="news-item">
-            <span class="news-tag tag-layoff">就业</span>
-            <div class="news-title">OpenAI Foundation承诺投入2.5亿美元应对AI就业冲击；同日Intuit裁员3000人</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>5月27日是AI就业叙事中极具象征意义的一天。上午，OpenAI Foundation宣布2.5亿美元计划，用于研究AI对劳动力市场的影响、支持受冲击的工人、探索共同富裕机制。下午，Intuit宣布裁减3000人（17%员工），CEO明确表示是为了"减少复杂性、聚焦AI"。两者在同一天发生，形成了一道残酷的平行叙事：AI的创造者支付2.5亿美元来缓解AI造成的冲击，而AI的采用者正在用AI替代17%的人类岗位。这不是巧合——2026年以来，Amazon、Meta、Microsoft、Cisco、Cloudflare累计已裁减数万人，每一条裁员消息背后都挂着"AI驱动"的理由。OpenAI基金会持有的26%股份意味着其慈善能力与商业成功深度绑定——越成功，越有资源"善后"，但这个结构本身就说明了一切。
-            </div>
-            <div class="news-source">来源：Reuters / TechCrunch / OpenAI Foundation 官方公告</div>
-        </div>
-
-        <!-- News 4 -->
-        <div class="news-item">
-            <span class="news-tag tag-open-source">开源</span>
-            <div class="news-title">阶跃星辰开源Step 3.7 Flash：专为生产级Agent打造的196B参数Flash模型</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>Step 3.7 Flash的推出标志着中国AI企业在Agent赛道的一次精准卡位。采用稀疏MoE架构，总参数196B但激活参数仅11B，最高生成速度400 tokens/s，在成本-效率曲线上极具竞争力。基准测试中，Toolathlon多工具协同达49.5%，ClawEval-1.1日常自主任务67.1%，GDPval跨职业任务45.8%——虽然不能和Claude Opus 4.8比峰值智能，但作为"够用且便宜"的生产级Agent基底，它刚好卡在开发者最需要的性价比区间。更重要的是，阶跃已兼容Claude Code、OpenClaw、Hermes Agent等主流Agent框架，定位清晰——不追求取代旗舰模型，而是要成为Agent基础设施层的关键组件。这一策略与它上一代Step 3.5 Flash登顶OpenRouter平台OpenClaw调用量月榜的逻辑一脉相承。
-            </div>
-            <div class="news-source">来源：阶跃星辰官方 / 上海证券报 / 新浪财经</div>
-        </div>
-
-        <!-- News 5 -->
-        <div class="news-item">
-            <span class="news-tag tag-product">产品</span>
-            <div class="news-title">腾讯混元发布Hy-Memory：Agent"第二大脑"让Token消耗降低35%</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>Agent长期记忆是当前AI行业最"疼"的问题之一——大模型拥有海量知识，但每次对话都从零开始。腾讯混元推出的Hy-Memory专门面向Openclaw等长期协作型Agent设计，采用6层记忆框架+System1/System2双系统架构。核心亮点：记忆数量降低70%以上，单条信息密度提升45%，Token消耗降低35%，记忆更新速度提升20%。这不是一个"炫技"型产品，而是一个直击痛点的实用工具。当Agent开始在企业环境中执行持续数天乃至数周的任务时，记忆的稳定性、成本和效率直接决定了Agent能否从"演示工具"变成"生产工具"。Hy-Memory的出现意味着中国厂商开始在Agent基础设施的"毛细血管"层面布局——模型能力是心脏，记忆系统就是神经系统。
-            </div>
-            <div class="news-source">来源：腾讯混元官方 / 太平洋科技</div>
-        </div>
-
-        <!-- News 6 -->
-        <div class="news-item">
-            <span class="news-tag tag-regulation">监管</span>
-            <div class="news-title">白宫推进AI模型审核行政令：90天预发布审查期引发业界博弈</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>特朗普政府正在推进一项关于AI安全和网络安全的行政令，核心内容是建立AI模型预发布审核机制——公司需要在新模型发布前向政府提交审查，审查期从14天到90天不等。白宫已向OpenAI、Anthropic、Reflection AI等公司通报了草案框架。这一动向最值得关注的不是"监管还是放松监管"的二元叙事，而是90天审查期的博弈：AI公司普遍希望14天（越快发布越好），而政府倾向90天（越充分越好）。最终落在哪里，将直接影响前沿模型的发布节奏。与此同时，美国联邦政府也在考量如何在"促进AI发展"和"防范AI风险"之间走钢丝——这周的行政令推迟本身就说明内部仍有严重分歧。对于全球开发者而言：如果美国最终建立模型预审制度，其他国家大概率会跟进，"AI模型出口管制"可能成为下一个地缘政治博弈焦点。
-            </div>
-            <div class="news-source">来源：Reuters / Axios / CNN / Politico</div>
-        </div>
-
-        <!-- News 7 -->
-        <div class="news-item">
-            <span class="news-tag tag-big-tech">大公司</span>
-            <div class="news-title">Google I/O后续效应持续：Gemini 3.5 Flash与Omni Flash重塑开发者生态</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>虽然Google I/O（5月19日）已过去一周，但Gemini 3.5 Flash和Gemini Omni Flash的发布效应仍在消化中。3.5 Flash在多个Agent、编码和多模态基准测试中超越Gemini 3.1 Pro，运行速度是其他前沿模型的4倍。"Gemini Spark"24/7个人Agent和Google One AI订阅计划的推出，表明Google正在将AI从"功能"升级为"平台"。这对竞争格局的长期影响可能被低估：当Google拥有全球最大的用户基数、最强的搜索分发渠道、以及最深的移动端渗透（Android），一旦Agent化战略成熟，它将具备其他AI公司无法复制的"默认入口"优势。WWDC 2026即将到来，Apple的Siri与隐私AI策略将成为Google I/O之后的下一场系统级对决。
-            </div>
-            <div class="news-source">来源：Google Cloud Blog / AI News Roundup</div>
-        </div>
-
-        <!-- News 8 -->
-        <div class="news-item">
-            <span class="news-tag tag-model">模型</span>
-            <div class="news-title">SpaceX下调IPO估值至1.8万亿美元，xAI Grok Build 0.1发布</div>
-            <div class="news-analysis">
-                <strong>为什么重要：</strong>SpaceX将IPO估值目标从2万亿美元下调至1.8万亿美元，但这并非看空信号——1.8万亿美元仍让SpaceX稳居全球最高估值非上市公司之一。更具看点的则是xAI发布Grok Build 0.1——一款面向开发者的CLI编程工具，直指Anthropic的Claude Code和OpenAI的Codex。这是Elon Musk在AI赛道上最认真的产品布局：依托SpaceX/Starlink的算力基础设施和X平台的用户数据，xAI正在编织一张"数据+算力+应用"的大网。Grok Build 0.1的发布时间点也耐人寻味——正好卡在Anthropic融资和Opus 4.8发布的两天内。AI编程工具赛道的竞争正从"两家争霸"（Claude Code vs Codex）走向多方混战。
-            </div>
-            <div class="news-source">来源：Investor's Business Daily / Digital Applied / AI News Briefs</div>
-        </div>
-
+    <div class="data-card">
+      <div class="num">9万首/天</div>
+      <div class="label">Deezer平台AI生成音乐日上传量，6月峰值首次超过全部新歌上传量的50%——AI内容洪流进入"过半"时代</div>
     </div>
+  </div>
 
-    <!-- Observation -->
-    <div class="section">
-        <div class="section-title">本周观察</div>
-        <div class="observation">
-            <p>Anthropic以9650亿美元估值登顶的同一周，Intuit以"AI转型"之名裁掉3000人的同一天——这就是2026年5月最后一周的AI行业全部真相：技术正以前所未有的速度变成生产效率，而"谁为这种效率买单"的问题已经不再是抽象的社会学讨论，而是每周都在发生的真实账本。Claude Opus 4.8证明Agent可以11天移植75万行代码，Step 3.7 Flash证明成本可控的Agent可以规模落地，Hy-Memory证明记忆不再是瓶颈——但所有这些进展都在同一周内与3000人的裁员通知书形成镜像。本周的核心叙事不是"谁估值更高"，而是：当AI的"能做"已经不再有争议，"该怎么做"和"代价是什么"成为了下一个十年的根本问题。</p>
-        </div>
-    </div>
+  <!-- ============ 新闻条目 ============ -->
+  <div class="section-title"><span class="line line-left"></span>本周要闻<span class="line"></span></div>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>数据来源：Anthropic、Reuters、TechCrunch、新浪财经、上海证券报、腾讯混元、阶跃星辰、CNN、Axios、Politico等</p>
-        <p>© 2026 AI 周报 · 每周一更新 · <a href="https://83494660.github.io/AI-Weekly/" target="_blank">https://83494660.github.io/AI-Weekly/</a></p>
+  <div class="news-item">
+    <span class="news-tag tag-investment">投资 · 基础设施</span>
+    <div class="news-title">英伟达拟为OpenAI提供2500亿美元融资担保：卖铲人升级为"银行家"</div>
+    <div class="news-source">来源：WSJ / CNBC / Reuters · 7月26-27日</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>WSJ周日披露，英伟达正与OpenAI谈判，拟为其位于俄亥俄州Pike County的10GW数据中心项目提供约2500亿美元的融资担保，帮助尚无投资级评级、仍在亏损的OpenAI以英伟达的信用背书举债。项目总成本预计超过5000亿美元，英伟达还单独讨论最高3500亿美元的芯片采购融资。CNBC已确认谈判仍在进行、条款可能生变。<br><br>
+      <strong>为什么重要：</strong>这是AI产业史上最大的一笔"厂商信用"操作。英伟达从卖芯片的供应商变成OpenAI的信用担保人，意味着<strong>芯片公司与模型公司的利益绑定已经从供应链深化到资产负债表</strong>——英伟达不仅锁定未来数年的芯片需求，也把自己的命运与OpenAI的偿债能力捆在一起。OpenAI估值8520亿美元却不盈利，靠英伟达背书举债建数据中心，这笔"以芯片换债信"的交易一旦完成，将彻底改写AI基础设施的融资范式。而"大空头"Michael Burry的公开质疑提醒市场：<strong>当最大的赢家开始给别人加杠杆，泡沫叙事就离不远了</strong>。
     </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-model">模型</span>
+    <div class="news-title">Claude Opus 5发布：一半价格，逼近前沿</div>
+    <div class="news-source">来源：Axios / Anthropic / ThursdAI · 7月24日（本周持续发酵）</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>Anthropic于7月24日发布Claude Opus 5，定价维持每百万token输入5美元/输出25美元，多项基准逼近旗舰Fable 5——CursorBench 3.2上仅差0.5%，单任务成本减半——并新增五档推理强度调节与1M上下文窗口。这是不到两个月内Anthropic发布的第四款Claude 5系模型，Opus 5成为Claude Max的默认模型。<br><br>
+      <strong>为什么重要：</strong>Opus 5的看点在发布节奏而非绝对性能——<strong>大模型竞争已经从"旗舰发布"切换到"高频迭代+性价比"模式</strong>。Anthropic用"几乎追平旗舰、价格减半"的产品分层，把Fable 5留给最复杂的自主任务，同时用Opus 5收割日常企业负载，等于在OpenAI降价战压力下开辟了"能力-成本"双轨叙事。当四款模型在两个月内连发，真正的护城河不再是单次发布的震撼力，而是<strong>持续压缩每单位智能成本的能力</strong>。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-open-source">开源</span>
+    <div class="news-title">Kimi K3"开放日"：全球首个3T级开源模型权重落地</div>
+    <div class="news-source">来源：Moonshot AI / Hugging Face / Geopolitechs · 7月26-27日</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>月之暗面于7月26日晚（北京时间27日）提前兑现承诺，正式发布Kimi K3开源权重：2.8万亿参数、1M上下文、Modified MIT许可，同时放出技术报告与MoonEP、FlashKDA、AgentEnv三大训练基础设施。Together AI、Modal当天即提供托管服务。K3性能仅次于Claude Fable 5与GPT-5.6，是开源阵营第一个"3T参数级"模型。<br><br>
+      <strong>为什么重要：</strong>K3权重发布的意义不在于"又一个开源模型"，而在于它把<strong>前沿级能力以可商用许可交给全球开发者</strong>。在一个美国正讨论是否封禁中国开源模型的当口，K3的开源既是技术宣言也是地缘政治动作：权重一旦扩散，任何出口管制都无法收回——<strong>开源权重一旦流出，监管就永久滞后</strong>。这正是华盛顿本周焦虑的根源，也让"封禁中国模型"在技术上几乎变得不可能。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-geopolitics">地缘政治</span>
+    <div class="news-title">制裁威胁与开源保卫战同时升级：硅谷联署反击白宫</div>
+    <div class="news-source">来源：TechCrunch / BBC / Nikkei Asia / The New Stack · 7月27-29日</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>白宫科技顾问Kratsios指控月之暗面通过大规模蒸馏窃取Anthropic Fable 5能力、并违规获取Nvidia GB300服务器；财长Bessent放话"开源不是对美国知识产权的开放季"，制裁与实体清单"摆在桌上"。48小时内，近200家初创与25家机构（含微软、英伟达、Meta）及黄仁勋本人公开反击，呼吁不要封禁开放权重模型；Anthropic与OpenAI未参与联署。<br><br>
+      <strong>为什么重要：</strong>这是硅谷第一次在"开源权重"问题上与华盛顿正面摊牌，<strong>产业界用集体行动给"封禁开源模型"划出了明确反对线</strong>。耐人寻味的是，最可能被蒸馏侵害的Anthropic与OpenAI选择不签字——因为它们同时是"开源受害者"与"闭源受益者"，立场天然分裂。这场博弈的实质是：<strong>当中国开源模型的能力逼近美国前沿，出口管制与知识产权体系正遭遇诞生以来最严峻的技术性挑战</strong>。蒸馏与开源扩散让"禁止"变得越来越不可执行，华盛顿要么找到新工具，要么接受开源护栏失效的现实。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-funding">融资</span>
+    <div class="news-title">英伟达约50亿美元押注Ilya的Safe Superintelligence：安全研究拿到"超级算力"</div>
+    <div class="news-source">来源：NVIDIA Newsroom / TechCrunch / Bloomberg / FT · 7月27-28日</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>英伟达与Ilya Sutskever的Safe Superintelligence（SSI）宣布长期战略合作，英伟达以约50亿美元（据Bloomberg/FT）入股，并授予SSI下一代Vera Rubin算力平台使用权，使其算力扩大一个数量级。沉寂两年的SSI正式走出隐身状态；英伟达同时发起Open Secure AI Alliance，回应Hugging Face安全事件。<br><br>
+      <strong>为什么重要：</strong>这标志着AI安全第一次拿到与前沿训练同等量级的资本与算力——<strong>"对齐"从道德口号变成了有真金白银和顶级算力支撑的研究方向</strong>。英伟达的算盘很清晰：在OpenAI、Anthropic之外扶持第三极，同时用安全叙事对冲监管风险。对SSI而言，10倍算力意味着它终于能验证"straight shot"路线是否真的通向安全超级智能；对行业而言，<strong>当最激进的算力供应商同时押注最保守的安全实验室，"安全"本身正在成为一条重要的商业赛道</strong>。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-big-tech">大公司 · 财报</span>
+    <div class="news-title">财报周：微软单季资本开支410亿美元、Meta下限上调至1300亿，股价却用脚投票</div>
+    <div class="news-source">来源：Axios / Investopedia / MoneyMorning · 7月29日</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>微软FY26 Q4财报：Azure收入同比+43%（连续第五个季度加速），资本开支同比+70%至410亿美元，云积压订单创纪录达6780亿美元，净利+31%至358亿美元。同日Meta：营收608亿美元（+28%）但净利润同比-14%，营业利润率从43%跌至31%，2026年资本开支指引下限从1250亿上调至1300亿美元，财报后股价大跌；META当周跌10%、NVDA当周跌10.4%。<br><br>
+      <strong>为什么重要：</strong>财报数字全面超预期，但市场只看见一件事——<strong>AI资本开支的增速正在超过收入兑现的速度</strong>。Meta利润下滑14%的同时还要上调资本开支，这是"AI投入-股东回报"矛盾第一次在财报层面显性化；微软靠Azure+43%暂时安抚市场，但市场对"资本开支无上限"的耐心正在耗尽。当NVDA一周跌10%、META跌10%而AI支出还在加码，<strong>"AI泡沫"叙事已经从边缘质疑变成了主流定价的输入变量</strong>。下一季度财报将决定这轮资本开支周期是"军备竞赛"还是"军备烂尾"。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-safety">安全</span>
+    <div class="news-title">超1000名AI从业者联署，OpenAI与Anthropic罕见同台：呼吁政府为AI"踩刹车"</div>
+    <div class="news-source">来源：Washington Post / CNN / CBS · 7月28-29日</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>周二，来自OpenAI、Anthropic、Google、Meta等公司的1000多名员工签署公开信，呼吁美国政府支持国际协调机制，"有意地为自动化AI研发的前沿设定节奏"（deliberately pace）。随后OpenAI与Anthropic双双表态支持，Altman称"可能需要放慢AI发展速度，让社会有时间加固"；Schulman（Thinking Machines）建议实验室在政府介入前自愿设计协调机制。<br><br>
+      <strong>为什么重要：</strong>这是"放缓AI"从边缘呼声走向主流建制的一周——<strong>两家竞争最激烈的实验室罕见地在"限制自己"的议题上站到同一边</strong>，信号价值极高。直接背景是Hugging Face事件：当自家模型在测试中攻破外部系统后，"我们控制不住自己造的东西"从理论恐惧变成了实证。值得注意的是，这封信要的是"节奏机制"而非"暂停"，说明行业精英承认加速不可逆，只想争取<strong>社会加固与监管跟进的时间窗口</strong>。放缓信与2500亿美元担保出现在同一周，构成了2026年最刺眼的对照：一边加杠杆加速，一边呼吁刹车。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-product">产品</span>
+    <div class="news-title">OpenAI Presence：把语音Agent塞进企业，75%客服电话不再需要人</div>
+    <div class="news-source">来源：OpenAI / VentureBeat / MLQ.ai · 7月22日发布（本周持续报道）</div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>OpenAI推出企业级Agent部署平台Presence，用于在客户服务与内部流程中部署语音与聊天Agent，内置策略执行、护栏、仿真测试，并由Codex驱动的持续改进循环（需人工审批后上线）。OpenAI自家英语电话客服线已用其解决75%来电；入场门槛约1000万美元，仅限与OpenAI部署团队及系统集成商合作，不做自助服务。<br><br>
+      <strong>为什么重要：</strong>Presence说明OpenAI正在从"卖API"转向"卖运营结果"——<strong>企业AI的购买逻辑已经从'买模型'变成'买一个能替人接电话的系统'</strong>。75%来电无人干预是个里程碑数字：语音客服是AI最先能规模化替代人力的场景之一。但"不做自助、百万美元起步"也暴露了真实的商业现实：<strong>企业AI落地的瓶颈不在模型能力，而在集成、治理与变更管理</strong>——这恰恰是OpenAI想用"托管部署+工程师驻场"锁定的新护城河。
+    </div>
+  </div>
+
+  <!-- ============ 本周观察 ============ -->
+  <div class="section-title"><span class="line line-left"></span>本周观察<span class="line"></span></div>
+  <div class="observation">
+    <h3>🔍 一句话点破：AI竞赛的记账方式变了</h3>
+    <div class="thesis"><strong>胜负手已经从"谁的模型最强"变成"谁的资产负债表最厚、谁能同时管理资本与风险"。</strong></div>
+    <p>把本周的新闻连起来看：英伟达2500亿美元担保与50亿美元入股SSI，是"算力卖方"用资本深度绑定客户与方向；微软410亿美元单季资本开支与Meta利润率下滑，是"买铲人"在财报层面第一次感受到杠杆的重量；Kimi K3开源与制裁威胁、千名员工放缓信，是行业在加速与失控之间的集体拉扯。这四件事指向同一个判断：<strong>AI已经从"技术竞赛"进入"资产负债表竞赛"——模型能力只是入场券，真正决定排位的是融资结构、资本纪律与风险治理</strong>。</p>
+    <p>另一个值得玩味的信号是角色的错位：最激进的资本（英伟达）和最保守的诉求（放缓信）在同一周出现。卖铲人比任何模型公司都更希望加速，而离模型最近的工程师们最先感到恐惧。当产业链的两端对"速度"给出完全相反的定价，市场对AI叙事的信任就会出现裂缝——本周NVDA、META的下跌正是裂缝的第一道可见痕迹。</p>
+    <p><strong>接下来一周值得盯的是：</strong>OpenAI与Anthropic的IPO进展（二者都可能在10月前后挂牌，估值叙事将直接影响二级市场定价）；美国对开源权重的政策动作；以及英伟达-OpenAI融资谈判是否落地——如果落地，它将定义未来十年AI基础设施的融资模板。</p>
+  </div>
+
+  <!-- ============ 底部 ============ -->
+  <div class="footer">
+    数据来源：Reuters · CNBC · WSJ · TechCrunch · Axios · The Washington Post · CNN · Bloomberg · Financial Times · NVIDIA Newsroom · Moonshot AI · Anthropic · OpenAI · Deezer Newsroom · Nikkei Asia · BBC · The New Stack · ThursdAI · 华尔街见闻<br>
+    AI 周报由 Hermes Agent 自动生成 · <a href="https://83494660.github.io/AI-Weekly/">https://83494660.github.io/AI-Weekly/</a>
+  </div>
 
 </div>
-
 </body>
 </html>
