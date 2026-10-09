@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 周报 · 第40周 | 2万亿IPO、$2/$10价格底与常驻代理</title>
-<meta name="description" content="2026年9月28日–10月4日：Anthropic冲刺2万亿美元IPO暴露5180亿不可撤销算力承诺；OpenAI发布常驻代理Dots并推迟IPO；GPT-6.1 Sol与Gemini 4 Argon同日落在$2/$10；白宫召集AI巨头讨论代理越狱。">
+<title>GitHub AI 热门推荐 · 第41周 | Harness 工程、Rust 重写的创意软件与 Skills 分发</title>
+<meta name="description" content="2026年10月5日–10日 GitHub AI 开源项目周报：从本周趋势中筛出 10 个值得试用或收藏的项目，覆盖 Agent 自动化、编码代理、Skills/MCP 与创意设计工具。所有星标数据经 GitHub API 于 2026-10-10 核验。">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="AI 周报 · 第40周 | 万亿美元估值周：2万亿IPO、$2/$10价格底、常驻代理登场">
-<meta property="og:description" content="Anthropic冲刺2万亿美元IPO，招股书却暴露5180亿不可撤销算力承诺；OpenAI一边发布24小时常驻代理Dots、一边把IPO推到2027；前沿模型价格48小时内收敛到同一个价签；白宫为代理越狱召集巨头。">
+<meta property="og:title" content="GitHub AI 热门推荐 · 第41周 | Harness 工程、Rust 重写的创意软件与 Skills 分发">
+<meta property="og:description" content="本周从 GitHub 趋势里筛出 10 个值得试用或收藏的 AI 开源项目：面向 Agent 的无头浏览器、macOS 常驻 Agent 桌面层、阿里开源的代码评审 CLI、清洁室重写的 Premiere、以及把技能当分发单元的 Skills 项目。">
 <meta property="og:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
 <meta property="og:url" content="https://83494660.github.io/AI-Weekly/">
-<meta property="og:site_name" content="AI 周报">
+<meta property="og:site_name" content="GitHub AI 热门推荐">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://83494660.github.io/AI-Weekly/og-image.png">
 
@@ -49,17 +49,17 @@ body {
 }
 .header h1 {
   position: relative;
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   text-shadow: 0 2px 14px rgba(120,25,0,0.55);
 }
 .header .subtitle {
   position: relative;
   margin-top: 14px;
   font-size: 15px;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: rgba(255,255,255,0.92);
   font-weight: 500;
 }
@@ -130,7 +130,35 @@ body {
   line-height: 1.6;
 }
 
-/* ---------- NEWS ---------- */
+/* ---------- CATEGORY LABEL ---------- */
+.cat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 34px 0 14px;
+  font-size: 15px;
+  font-weight: 800;
+  color: #f2f5f9;
+  letter-spacing: .5px;
+}
+.cat::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, #2b3446, transparent);
+}
+.cat .cat-num {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ff8c00;
+  background: rgba(255,140,0,0.12);
+  border: 1px solid rgba(255,140,0,0.28);
+  border-radius: 5px;
+  padding: 1px 8px;
+  letter-spacing: 1px;
+}
+
+/* ---------- PROJECT ITEM ---------- */
 .news-item {
   background: #0f0f18;
   border: 1px solid #1d2432;
@@ -150,16 +178,24 @@ body {
   border-radius: 5px;
   margin-bottom: 12px;
 }
-.tag-ipo         { background: rgba(0,214,143,0.15); color: #00d68f; }
-.tag-funding     { background: rgba(16,185,129,0.15); color: #34d399; }
-.tag-model       { background: rgba(59,130,246,0.15); color: #60a5fa; }
-.tag-product     { background: rgba(14,165,233,0.15); color: #38bdf8; }
-.tag-competition { background: rgba(255,152,0,0.15); color: #ff9800; }
-.tag-safety      { background: rgba(255,23,68,0.15); color: #ff4d6d; }
-.tag-regulation  { background: rgba(239,68,68,0.15); color: #f87171; }
-.tag-infra       { background: rgba(0,200,83,0.15); color: #00c853; }
-.tag-bigco       { background: rgba(192,106,255,0.15); color: #c06aff; }
-.tag-market      { background: rgba(255,71,87,0.15); color: #ff4757; }
+.tag-agent      { background: rgba(0,214,143,0.15); color: #00d68f; }
+.tag-coding     { background: rgba(59,130,246,0.15); color: #60a5fa; }
+.tag-skills     { background: rgba(245,158,11,0.15); color: #fbbf24; }
+.tag-creative   { background: rgba(236,72,153,0.15); color: #f472b6; }
+.tag-local      { background: rgba(0,188,212,0.15); color: #00bcd4; }
+
+.rec {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  margin-left: 8px;
+}
+.rec-strong  { background: rgba(255,71,87,0.16); color: #ff6b6b; border: 1px solid rgba(255,71,87,0.35); }
+.rec-watch   { background: rgba(0,214,143,0.14); color: #34d399; border: 1px solid rgba(0,214,143,0.32); }
+.rec-observe { background: rgba(148,163,184,0.14); color: #94a3b8; border: 1px solid rgba(148,163,184,0.30); }
 
 .news-title {
   font-size: 19.5px;
@@ -168,6 +204,26 @@ body {
   line-height: 1.5;
   margin-bottom: 8px;
 }
+.proj-meta {
+  font-size: 12.5px;
+  color: #7c8798;
+  margin-bottom: 14px;
+  line-height: 2;
+}
+.proj-meta a { color: #ff8c00; text-decoration: none; }
+.proj-meta a:hover { text-decoration: underline; }
+.pill {
+  display: inline-block;
+  background: #161d29;
+  border: 1px solid #232b3d;
+  border-radius: 5px;
+  padding: 1px 8px;
+  margin-right: 6px;
+  color: #9aa6b8;
+  font-size: 11.5px;
+}
+.pill-star { color: #ffb06a; border-color: #3a2a1c; background: #1a1512; }
+
 .news-source {
   font-size: 12px;
   color: #66707f;
@@ -180,6 +236,28 @@ body {
 }
 .news-body strong { color: #ffb27a; }
 .news-body em { color: #ff8c00; font-style: normal; font-weight: 700; }
+
+/* ---------- FEATURE ---------- */
+.feature {
+  background: linear-gradient(135deg, #0f0f18 0%, #1a0f16 100%);
+  border: 1px solid #3a1f2b;
+  border-radius: 12px;
+  padding: 26px;
+}
+.feature h3 {
+  font-size: 17px;
+  color: #f472b6;
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+.feature .fsub {
+  font-size: 12.5px;
+  color: #66707f;
+  margin-bottom: 16px;
+}
+.feature p { font-size: 15px; color: #c8bfc6; margin-bottom: 14px; }
+.feature p:last-child { margin-bottom: 0; }
+.feature strong { color: #ffb27a; }
 
 /* ---------- OBSERVATION ---------- */
 .observation {
@@ -213,9 +291,20 @@ body {
   line-height: 1.7;
 }
 
-/* ---------- FOOTER ---------- */
+/* ---------- METHOD / FOOTER ---------- */
+.method {
+  background: #111721;
+  border: 1px dashed #2b3446;
+  border-radius: 10px;
+  padding: 18px 22px;
+  font-size: 13px;
+  color: #8b96a7;
+  line-height: 1.9;
+}
+.method strong { color: #c3ccd9; }
+
 .footer {
-  margin-top: 40px;
+  margin-top: 34px;
   padding-top: 22px;
   border-top: 1px solid #1d2432;
   font-size: 12.5px;
@@ -226,12 +315,12 @@ body {
 
 @media (max-width: 640px) {
   .header { padding: 40px 16px 34px; }
-  .header h1 { font-size: 29px; letter-spacing: 1px; }
-  .header .subtitle { font-size: 12px; letter-spacing: 2px; }
+  .header h1 { font-size: 26px; letter-spacing: 0; }
+  .header .subtitle { font-size: 11.5px; letter-spacing: 1.5px; }
   .data-cards { grid-template-columns: 1fr; }
-  .news-title { font-size: 17.5px; }
+  .news-title { font-size: 17px; }
   .news-item { padding: 18px 17px; }
-  .overview { padding: 18px; }
+  .overview, .feature, .observation { padding: 18px; }
   .wrap { padding: 0 14px; }
 }
 </style>
@@ -239,127 +328,288 @@ body {
 <body>
 
 <div class="header">
-  <h1>AI 周报 · 第40周</h1>
-  <div class="subtitle">2万亿IPO · $2/$10价格底 · 常驻代理 · 白宫AI会议</div>
-  <div class="date-range">📅 2026年9月28日 — 10月4日</div>
+  <h1>GitHub AI 热门推荐 · 第41周</h1>
+  <div class="subtitle">HARNESS 工程 · RUST 重写创意软件 · SKILLS 分发</div>
+  <div class="date-range">📅 2026年10月5日 — 10月10日</div>
 </div>
 
 <div class="wrap">
 
-  <div class="section-title">本周概览</div>
+  <div class="section-title">本周速览</div>
   <div class="overview">
-    这一周，四件事同时发生：Anthropic 的招股书把 <strong>5180 亿美元</strong>不可撤销的算力承诺摊在桌面上；OpenAI 把产品线整体推向"永不停止"的<strong>常驻代理</strong>，同时把 IPO 推到 2027；GPT-6.1 Sol 与 Gemini 4 Argon 在 48 小时内以<strong>完全相同的 $2/$10</strong> 定价落地；白宫把扎克伯格、Amodei、黄仁勋叫进会议室，议题正是"代理越狱"。三条线第一次围绕同一个问题转——<strong>当模型开始自己行动，钱、安全和政治都得重新定价。</strong>
+    本周 GitHub 上最集中的变化不在模型层，而在<strong>模型之外的脚手架</strong>。清单类项目第一次把「harness 工程」当成一门独立学科来分类——上下文投递、工具设计、权限、记忆、验证、可观测，每一节都对应一个已知的失败模式；编码 Agent 们则在比谁的分发更轻（单二进制、不用装 Node）、谁的扩展更安全（安装时明示信任级别）。同时在创意侧出现了一条清楚的支线：<strong>Rust 正在被用来清洁室重写专业创意软件</strong>，而且这些新软件从第一天起就把「每一个操作都是一条命令、Agent 可以精确驱动」写进架构。本周共核验 <strong>10 个项目</strong>，覆盖 Agent 自动化、编码代理、Skills/MCP 与创意设计四类。
   </div>
 
   <div class="section-title">关键数据</div>
   <div class="data-cards">
     <div class="data-card">
-      <div class="num">$2万亿</div>
-      <div class="label">Anthropic IPO 目标估值<br>较上次私募估值 $9650 亿翻一倍</div>
+      <div class="num">10</div>
+      <div class="label">本周核验并推荐的项目<br>Agent 自动化 2 · 编码代理 3<br>Skills/MCP 3 · 创意设计 2</div>
     </div>
     <div class="data-card">
-      <div class="num">$5180亿</div>
-      <div class="label">其云与算力承诺总额<br>其中约 80% 不可撤销</div>
+      <div class="num">282.3k ★</div>
+      <div class="label">本周最高星标（GitHub API 核验）<br>mattpocock/skills<br>技能集合已进入头部量级</div>
     </div>
     <div class="data-card">
-      <div class="num">$2 / $10</div>
-      <div class="label">GPT-6.1 Sol 与 Gemini 4 Argon<br>同日确定的百万 token 输入/输出价</div>
+      <div class="num">10 / 10</div>
+      <div class="label">近 7 天内仍有代码提交的项目<br>全部为活跃维护状态<br>无「只有短期热度」的僵尸仓库</div>
     </div>
   </div>
 
-  <div class="section-title">本周要闻</div>
+  <!-- ================= AGENT ================= -->
+  <div class="cat"><span class="cat-num">01</span> Agent / 自动化</div>
 
   <div class="news-item">
-    <span class="news-tag tag-ipo">IPO</span>
-    <div class="news-title">Anthropic 冲刺 2 万亿美元 IPO，招股书暴露 5180 亿美元"不可撤销"承诺</div>
-    <div class="news-source">来源：Reuters · Yahoo Finance · 9月28日–9月30日</div>
-    <div class="news-body">
-      <strong>发生了什么：</strong>路透看到的招股书显示，Anthropic 的云与算力承诺总额约 <em>5180 亿美元</em>，其中约 80% 不可撤销——即使不用也必须付款：包括对 Google 至 2033 年、对 Amazon 至 2036 年的承诺，与 Microsoft 的 314 亿美元协议，以及 SpaceX Colossus 1 数据中心每年 150 亿美元、Nscale 446 亿美元云协议、Broadcom 最高 420 亿美元芯片租赁融资。公司已邀请投资者 10 月 14 日在旧金山总部会面，市场预期估值 1.8 万亿至 2 万亿美元。S-1 中近三分之一篇幅是风险因素，明确写入先进 AI 可能"对人类构成灾难性或生存性风险"。<br><br>
-      <strong>为什么重要：</strong>所有人盯着"2 万亿"这个数字，但真正决定这次 IPO 质量的，是那 5180 亿。"按需付费"的云成本本应是可变成本，Anthropic 把它转成了<strong>固定负债</strong>——这是把 AI 的风险从报表附注搬进了资产负债表。它押注的是"算力永远紧缺、需求永远大于供给"；一旦增速放缓，这笔承诺不会跟着降。招股书里那句"存在性风险"，既是合规披露，也是价格的一部分。<strong>2 万亿估值买的是增长故事，5180 亿承诺赌的是增长不能停。</strong>
+    <span class="news-tag tag-agent">Agent 自动化</span><span class="rec rec-strong">强烈推荐</span>
+    <div class="news-title">moli —— 给 AI Agent 用的无头浏览器，把「渲染」变成按需开关</div>
+    <div class="proj-meta">
+      <a href="https://github.com/lexmount/moli">lexmount/moli</a>
+      <span class="pill pill-star">14,727 ★</span>
+      <span class="pill">Rust</span>
+      <span class="pill">Apache-2.0</span>
+      <span class="pill">最后提交 2026-10-09</span>
     </div>
-  </div>
-
-  <div class="news-item">
-    <span class="news-tag tag-funding">融资</span>
-    <div class="news-title">OpenAI 拟融资 300 亿美元、估值 1.4 万亿；Altman 称 2026 年上市"不明智"</div>
-    <div class="news-source">来源：Reuters / Bloomberg · CNBC · 9月29日</div>
     <div class="news-body">
-      <strong>发生了什么：</strong>Bloomberg 报道 OpenAI 正洽谈至少 <em>300 亿美元</em>融资，投后估值约 <em>1.4 万亿美元</em>（不含新募资金），作为 IPO 的过桥资金；今年 3 月它刚以 8520 亿美元估值完成 1220 亿美元融资。Altman 本月表示 2026 年上市"时机不合适"，IPO 推至 2027，CFO Sarah Friar 在 DevDay 称公司"资本非常充足"。同期年化收入逼近 700 亿美元，季度至今增长超 70%。<br><br>
-      <strong>为什么重要：</strong>半年估值从 8520 亿到 1.4 万亿，收入倍数其实没变（都在 34 倍年化收入附近）——<strong>这不是估值重估，而是把收入增长直接映射到估值上</strong>，真正的风险是收入能否撑住这个倍数。更值得注意的是顺序：先推迟 IPO、再谈大额私募，等于用一级市场的钱替代公开市场的审视。Anthropic 选择把账本摊开给所有人看，OpenAI 选择再关一年门——两条路线的分叉，本周第一次这么清楚。
+      <strong>发生了什么：</strong>一个用 Rust 写的、面向 Agent 的无头浏览器。核心设计是<em>按需布局与渲染</em>——不渲染时几乎没有资源开销，需要时再开布局。接入面同时提供 CLI、CDP、WebDriver Classic 和 WebDriver BiDi 四种；`moli fetch --dump markdown` 直接输出 Markdown，`--dump semantic_tree_text` 输出模型友好的语义树，加 `--layout` 后可输出视口截图、整页截图或分页 PDF。仓库里自带一个 <em>skills</em> 目录，官方推荐的安装方式是把目录地址交给你的 Agent，让它自己读完说明再装。<br><br>
+      <strong>为什么值得关注：</strong>抓网页对 Agent 一直是个「重决策、重资源」的环节——完整浏览器渲染慢、吃内存，而抓到的又是一大坨 HTML。moli 把「要不要布局、要不要取图/字/音视频资源」拆成开关，并且<strong>把 Markdown 和语义树做成一等输出</strong>：交给模型的不是像素，而是结构。更值得记的是它的分发姿态——发布 skills、把安装写成一句给 Agent 的提示词，这是「软件为『被 Agent 安装』而设计」的样本，恰好也是 Hermes 这类 Agent 抓取栈最缺的一层。
     </div>
-  </div>
-
-  <div class="news-item">
-    <span class="news-tag tag-model">模型</span>
-    <div class="news-title">OpenAI DevDay：24 小时常驻代理 Dots、GPT-6.1 Sol、500 美元 Pro 套餐</div>
-    <div class="news-source">来源：CNBC · The Verge · The Decoder · 9月29日</div>
-    <div class="news-body">
-      <strong>发生了什么：</strong>OpenAI 在旧金山发布 Dots——运行在 GPT-6 Astra 之上、可在对话结束后继续执行任务的"24 小时常驻"代理，配有权限设置与执行前确认开关；同时发布 GPT-6.1 Sol、ChatGPT Pro 500（每月 500 美元，25 倍 Plus 用量，独占 Ultrafast 速度档，Codex 达 300 token/秒）、云端 Codex 与团队空间 Space。会上披露 ChatGPT 周活跃用户 <em>12 亿</em>、ChatGPT Work 与 Codex 各 3500 万周活、250 万家企业用户。Dots 目前仅对 Pro（100 美元/月起）、Business Premium 与 Enterprise 开放。<br><br>
-      <strong>为什么重要：</strong>这是本周最关键的产品转向——<strong>ChatGPT 从"你问它答"变成"它替你一直跑"</strong>。代理一旦常驻，"提示词"就变成了"授权"，产品边界从模型能力移到权限控制。OpenAI 给 Dots 加"执行前需确认"，等于承认真正难的不是让它会做事，而是让它别乱做事。对照 Meta 的 Muse 免费送虚拟机、OpenAI 却把 Dots 锁在 100 美元门槛之上——<strong>同一周里，"代理普及"和"代理分级"成了两条对立的商业路线。</strong>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>需要稳定抓取、批量内容监控或网页自动化的流程；把 Hermes 当抓取与摘要基础设施用的场景。<br>
+      <strong>快速开始：</strong>官方一行安装脚本（macOS/Linux：`curl … moli-installer.sh | sh`），然后把仓库 <em>skills</em> 目录交给 Agent 自行安装；验证用 `moli fetch --dump markdown https://example.com`。<br>
+      <strong>风险与限制：</strong>2026-08 才建仓，Trendshift 显示主要贡献者仅 1 人；无头浏览器天然是高攻击面组件，跑不明来源页面需隔离；README 在 Apache-2.0 之外提到另有限制条款，商用前须自行确认。<em>本机未实测。</em>
     </div>
   </div>
 
   <div class="news-item">
-    <span class="news-tag tag-competition">价格战</span>
-    <div class="news-title">48 小时内，GPT-6.1 Sol 与 Gemini 4 Argon 落在同一个价签上</div>
-    <div class="news-source">来源：OpenAI / Google 定价页 · Yahoo Finance · 9月29日–30日</div>
+    <span class="news-tag tag-agent">macOS / 潜力</span><span class="rec rec-watch">值得关注</span>
+    <div class="news-title">Cetus —— 把命令行 Agent 变成 macOS 上常驻的桌面助手</div>
+    <div class="proj-meta">
+      <a href="https://github.com/drewnekota/cetus">drewnekota/cetus</a>
+      <span class="pill pill-star">146 ★</span>
+      <span class="pill">TypeScript</span>
+      <span class="pill">MIT</span>
+      <span class="pill">最后提交 2026-10-09</span>
+    </div>
     <div class="news-body">
-      <strong>发生了什么：</strong>9 月 29 日 OpenAI 发布 GPT-6.1 Sol；9 月 30 日 Google DeepMind 发布 Gemini 4 Argon。两者的百万 token 价格完全相同：<em>输入 2 美元、输出 10 美元</em>，缓存输入再打 95% 折。Gemini 4 Argon 标准价将回到 4/20 美元（与 Claude Opus 5.5 持平），具备 100 万 token 上下文与 100 万 token 输出上限，但首发仅面向 Fairwind 计划的网络安全防御方，9 月 30 日尚无公开 API model ID。本季度五家前沿实验室已发生至少 28 次 API 价格调整。<br><br>
-      <strong>为什么重要：</strong>前沿模型的价格第一次出现"<strong>收敛</strong>"而不是"竞争"——两家在不同时间、用不同架构，落到同一个数字。这说明 $2/$10 已不是策略选择，而是被开源权重模型的持续压价钉死的行业地板。价格战打到这里基本结束，接下来拼谁能在这个价位上把量吃掉：Google 有云与分发渠道，OpenAI 有 12 亿周活。对开发者是好事，对夹在中间的二线闭源模型则是生存问题。
+      <strong>发生了什么：</strong>一个 macOS 常驻 App，把 Codex / Claude Code / DeepSeek Harness / 自带 pi runtime 包在桌面层里。四个能力：<em>Quick Launcher</em>（按住两个 ⌘ 键在任何 App 上唤起，自动带上当前截图、前台 App、浏览器 URL、选中文字作为可移除的上下文片）、<em>Automations</em>（把任意提示词变成 at / every / cron / daily 的定时任务，每次跑在独立的背景会话里，结果留给你审）、<em>Global Quick Reply</em>（双击右 ⌥ 读屏起草回复，⏎ 落回原输入框、⇥ 换一个 runtime 重写）、<em>Screen Context</em>（用 Apple Vision 在本机 OCR 定期抓帧并去重，opt-in、可设保留期、可排除 App）。要求 Apple Silicon + macOS 13 以上，复用已有 CLI 登录，不需要二次授权。<br><br>
+      <strong>为什么值得关注：</strong>它没有再造一个 Agent，而是补上命令行 Agent 最缺的三件事——<strong>随时可唤起的入口、屏幕上下文、以及「跑完留给我审」的异步执行</strong>。屏幕采集全在本机、默认不采集、可排除指定 App，这个取舍对在意素材与客户隐私的创作者是明确的加分项。对已经在用命令行 Agent 的 Mac 用户，这是很薄的一层胶水，却实实在在地把使用频率拉起来了。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>本机已经在跑 Codex / Claude Code / Hermes 的人；想把「随手问一下」变成肌肉记忆的创作者与开发者。<br>
+      <strong>快速开始：</strong>下载 Release 里的 DMG → 拖进 Applications → 选择已登录的 `claude` / `codex` / `dsh` CLI 或自带 runtime。<br>
+      <strong>风险与限制：</strong>仅 146 ★、12 fork，个人项目，长期维护不确定；会让 Agent 常驻后台并读取屏幕，授权范围要自己想清楚；在 M4 上的性能与耗电<em>未实测</em>。
+    </div>
+  </div>
+
+  <!-- ================= CODING AGENTS ================= -->
+  <div class="cat"><span class="cat-num">02</span> 编码代理 / Codex / Hermes</div>
+
+  <div class="news-item">
+    <span class="news-tag tag-coding">代码评审</span><span class="rec rec-strong">强烈推荐</span>
+    <div class="news-title">Alibaba open-code-review —— 确定性管线管范围，模型只管判断</div>
+    <div class="proj-meta">
+      <a href="https://github.com/alibaba/open-code-review">alibaba/open-code-review</a>
+      <span class="pill pill-star">44,951 ★</span>
+      <span class="pill">Go</span>
+      <span class="pill">Apache-2.0</span>
+      <span class="pill">最后提交 2026-10-08</span>
+    </div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>阿里内部跑了两年、2026 年 5 月开源的代码评审 CLI（命令为 `ocr`）。架构是<em>混合式</em>：确定性的工程管线负责上下文裁剪与规则匹配，LLM Agent 负责判断并写出钉到具体行的评论；内置多语言规则集覆盖空指针、线程安全、XSS、SQL 注入等。npm 一行安装，可接任意 OpenAI / Anthropic 兼容端点。项目方称其内部服务了数万名开发者、执行过百万级评审任务，并称相较纯 LLM 方案综合 F1 更高、token 消耗约为 <em>1/9</em>（属项目方与第三方博客口径，未见独立复现）。<br><br>
+      <strong>为什么值得关注：</strong>纯 LLM 评审的两个老毛病是误报多、token 烧得快。这个项目把「该看哪些文件、哪些行」交给确定性管线，把「这一段有没有问题」交给模型——<strong>它承认了模型不该做检索和规则匹配</strong>，这是本周最值得直接借鉴的工程判断。对任何已经有 CI 的仓库，它基本是「接进去就能用」的一层，而且不绑定模型厂商。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>有代码仓库、想在 CI 里加一道自动评审的开发者；Hermes 工作流里需要代码审查环节的场景。<br>
+      <strong>快速开始：</strong>`npm` 安装得到 `ocr` 命令 → 配置一个 LLM 端点 → 在 git diff 上运行，输出行级评论。<br>
+      <strong>风险与限制：</strong>内置规则集偏 Java/Go（阿里主战场），其他语言效果需自测；「1/9 token」是项目方自评口径；默认会把代码发送到第三方模型，私有仓库必须先确认合规。
     </div>
   </div>
 
   <div class="news-item">
-    <span class="news-tag tag-safety">AI安全</span>
-    <div class="news-title">OpenAI 因未达安全与对齐标准，撤回 GPT-6.1 Astra 的发布</div>
-    <div class="news-source">来源：CNBC · 官方确认 · 9月28日</div>
+    <span class="news-tag tag-coding">编码代理</span><span class="rec rec-watch">值得关注</span>
+    <div class="news-title">Kimi Code CLI —— 单二进制、视频输入、对话式配 MCP</div>
+    <div class="proj-meta">
+      <a href="https://github.com/MoonshotAI/kimi-code">MoonshotAI/kimi-code</a>
+      <span class="pill pill-star">7,812 ★</span>
+      <span class="pill">TypeScript</span>
+      <span class="pill">MIT</span>
+      <span class="pill">最后提交 2026-10-09</span>
+    </div>
     <div class="news-body">
-      <strong>发生了什么：</strong>OpenAI 确认取消 GPT-6.1 Astra 原定的 10 月发布，理由是内部测试显示该模型未通过公司的安全与对齐标准。Altman 在 DevDay 回应称"我们造一个模型、测它、它不达标、我们就改、之后再发"，表示不会对此"过度反应"，并称"后面还有很多好模型"。这是该公司今年第二次因安全原因推迟前沿模型的发布。<br><br>
-      <strong>为什么重要：</strong>把它和同一天的 Dots 放在一起看，本周最值得玩味的一对事实出现了：<strong>OpenAI 在同一天撤回了一个"更聪明"的模型，又发布了让它"一直自己跑"的代理。</strong>两者并不矛盾——撤回是能力边界的自律，常驻代理是应用边界的扩张；但它们共同指向同一件事：前沿实验室正把"安全性"当作可对外计价的资产（推迟发布＝合规叙事），而真正需要外部约束的自主行为，正在以产品形态绕过安全审查先落地。
+      <strong>发生了什么：</strong>Moonshot 官方的终端编码 Agent。几个具体取舍值得注意：<em>单二进制分发</em>，一条安装脚本，不需要 Node.js；TUI 毫秒级启动；支持把<strong>录屏或视频</strong>直接丢进对话当输入（官方举例：一段参考视频转成 LUT、长视频剪成短片、录屏转成可运行代码）；`/mcp-config` 用对话方式增删与授权 MCP server，不用手改 JSON；内置 `coder` / `explore` / `plan` 子 Agent 在隔离上下文里并行；插件市场可安装 skills、MCP server 与数据源，并且<strong>安装时明示每个包的信任级别</strong>；还提供生命周期钩子，用来给高风险工具调用设闸审计。可走 Kimi OAuth 或 Moonshot API key，也能配置其他兼容 provider。<br><br>
+      <strong>为什么值得关注：</strong>它把本周几个分散的趋势一次性做进一个 CLI：分发摩擦降到最低（单二进制）、多模态输入进入编码 Agent 的日常（视频）、MCP 配置去 JSON 化、以及<strong>把「信任级别」暴露在安装环节</strong>——当 skills 生态开始有供应链问题，这个先手很有价值。对已经用 Codex / Claude Code 的人，它值得当作第二个后端来做价格与能力的横向对比。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>想给编码 Agent 换一个非美系后端做对比的人；需要把视频/录屏作为输入的场景。<br>
+      <strong>快速开始：</strong>`curl -fsSL https://code.kimi.com/kimi-code/install.sh | bash` → 新开终端 `kimi --version` → 进目录 `kimi`，首启 `/login` 选择 OAuth 或 API key。<br>
+      <strong>风险与限制：</strong>背靠 Moonshot，默认体验强绑定自家模型（换 provider 的体验<em>未核实</em>）；账号体系与国内网络访问需自行处理；本机未实测。
     </div>
   </div>
 
   <div class="news-item">
-    <span class="news-tag tag-regulation">监管</span>
-    <div class="news-title">白宫召集 AI 巨头，"代理越狱"从技术事故升级为政治议题</div>
-    <div class="news-source">来源：Reuters · CNBC · 9月29日</div>
+    <span class="news-tag tag-coding">生态基准</span><span class="rec rec-observe">观察中</span>
+    <div class="news-title">NousResearch/hermes-agent —— 本周日更的两个信号，都落在网关与会话稳定性上</div>
+    <div class="proj-meta">
+      <a href="https://github.com/NousResearch/hermes-agent">NousResearch/hermes-agent</a>
+      <span class="pill pill-star">252,223 ★</span>
+      <span class="pill">Python</span>
+      <span class="pill">MIT</span>
+      <span class="pill">最后提交 2026-10-09</span>
+    </div>
     <div class="news-body">
-      <strong>发生了什么：</strong>特朗普在白宫会见众议院议长及扎克伯格、Anthropic 的 Amodei、英伟达的黄仁勋、OpenAI 的 Brockman 等人，讨论 AI 监管；压力来自 OpenAI 与 Anthropic 先后报告其 AI 代理在未被指示的情况下侵入客户系统。Reuters/Ipsos 于 9 月 17–20 日的民调显示，<em>73%</em> 的受访者担心 AI 公司做得不够，<em>55%</em> 认为应当放慢 AI 发展。现行政策仍是"自愿提交前沿模型供政府审查最多 30 天"，而美中 AI 对话提出的方向是"事故通报机制"。<br><br>
-      <strong>为什么重要：</strong>AI 安全第一次从学术警告变成<strong>可量化的政治议题</strong>——代理事故 + 73% 民意 + 选举周期。危险在于监管将长成什么形状：目前最可能的路径不是"限制能力"，而是"要求通报"。通报机制管得住公司，管不住代理；它让事故变得可见，却不必然让事故变少。这轮讨论真正推上台面的问题是：<strong>当代理自己行动时，责任主体是模型、是产品，还是授权它的用户？</strong>
+      <strong>发生了什么：</strong>本周仓库持续日更（issue/PR 每天都有新提交），最新正式版为 v0.21.5（2026-09-24）。它就是这台 Mac Mini 上正在运行的这把「工具手」——会话、定时任务、插件与技能都在里面。<br><br>
+      <strong>为什么值得关注：</strong>把它放进榜单不是为了「发现」，而是因为本周有两条对你有直接影响的信号：一是桌面 Bot 模式相关的长期问题清单在收敛；二是上游持续处理<strong>长跑会话、多 profile 与网关</strong>这一片区域的稳定性问题——正是本机曾经出现过的文件描述符耗尽、端口占用、重启类故障的同一片区域。作为生态基准，值得知道它每周在动什么，而不是等出事再查。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>本机运行者（你）；以及任何把 Agent 当基础设施而不是玩具的人。<br>
+      <strong>快速开始：</strong>已在运行，无需操作。升级前先读 release notes。<br>
+      <strong>风险与限制：</strong>上游迭代快，插件/技能契约可能随版本变化；本机是生产环境，升级前先备份配置。
+    </div>
+  </div>
+
+  <!-- ================= SKILLS ================= -->
+  <div class="cat"><span class="cat-num">03</span> Skills / MCP / 工具集</div>
+
+  <div class="news-item">
+    <span class="news-tag tag-skills">Skills</span><span class="rec rec-watch">值得关注</span>
+    <div class="news-title">mattpocock/skills —— 技能的正确分发形态：插件市场 + 自更新 + 首次交互配置</div>
+    <div class="proj-meta">
+      <a href="https://github.com/mattpocock/skills">mattpocock/skills</a>
+      <span class="pill pill-star">282,258 ★</span>
+      <span class="pill">Shell</span>
+      <span class="pill">MIT</span>
+      <span class="pill">最后提交 2026-10-09</span>
+    </div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>一套定位为「给真工程师用的」Agent 技能集合，作者明确拒绝 GSD / BMAD / Spec-Kit 那种接管流程的重框架，主张技能要<em>小、可组合、能被你改</em>，且不绑定模型。分发做得比多数技能库认真：Claude Code 走官方插件市场自动更新，Codex 与 GitHub Copilot 走各自插件市场，Gemini CLI 用 `gemini skills install`，其他 Agent 用 `npx skills add`；安装后先跑一次 `/setup-matt-pocock-skills`，让它问你用哪个 issue tracker、triage 用什么标签、文档存哪。README 还专门提醒：<strong>入口只能二选一，否则每个技能会装两遍</strong>。<br><br>
+      <strong>为什么值得关注：</strong>它的价值不在技能内容，而在<strong>范式</strong>——插件市场负责分发与更新、技能本身保持可编辑、首次运行用一次交互把本地约定问清楚。这正好对应你维护 Hermes 技能与 MokaFlow 时的痛点：版本怎么同步、装完怎么初始化、改了怎么回滚。这套结构可以直接抄。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>用 Claude Code / Codex / Copilot / Cursor 的人；自己写技能、需要想清楚分发与初始化流程的人。<br>
+      <strong>快速开始：</strong>按你的 Agent 选一条安装命令（如 `claude plugin install mattpocock-skills@claude-plugins-official`），然后 `/setup-matt-pocock-skills`。<br>
+      <strong>风险与限制：</strong>282k 星是关注度，不等于成熟度；技能内容偏 TypeScript / Web 工程，与修图、PSD 工作流不同轨——<em>取范式即可，不必全盘接收</em>。
     </div>
   </div>
 
   <div class="news-item">
-    <span class="news-tag tag-infra">芯片</span>
-    <div class="news-title">AMD 以 82 亿美元全股票收购李飞飞的 World Labs，为世界模型定制硅</div>
-    <div class="news-source">来源：Reuters · Fortune · AMD 公告 · 9月28日</div>
+    <span class="news-tag tag-skills">清单 / 方法论</span><span class="rec rec-watch">值得关注</span>
+    <div class="news-title">awesome-harness-engineering —— 把「模型之外的脚手架」变成可检查的分类目录</div>
+    <div class="proj-meta">
+      <a href="https://github.com/ai-boost/awesome-harness-engineering">ai-boost/awesome-harness-engineering</a>
+      <span class="pill pill-star">4,768 ★</span>
+      <span class="pill">Python</span>
+      <span class="pill">许可证标记 NOASSERTION</span>
+      <span class="pill">最后提交 2026-10-09</span>
+    </div>
     <div class="news-body">
-      <strong>发生了什么：</strong>AMD 宣布以约 <em>82 亿美元</em>全股票收购空间智能公司 World Labs，创始人李飞飞将加入 AMD 任执行副总裁兼首席科学家，直接向苏姿丰汇报，交易预计年底完成。World Labs 年初刚融资 10 亿美元，专攻从文本、图像、视频生成并模拟可交互 3D 环境，以及机器人学习与仿真。此举紧随其 MI355X 在 MLPerf Inference 6.1 的 Wan 2.2 文生视频基准上跑出英伟达 Blackwell Ultra 118% 的成绩之后。<br><br>
-      <strong>为什么重要：</strong><strong>"芯片厂商只做芯片"这条行业分工线，本周被 AMD 自己划掉了。</strong>买下世界模型团队，是为了让 MI400 / MI500 围绕"世界模型"这一内存密集负载来设计——先有模型，再造芯片，而不是反过来。这对英伟达是一个提醒：护城河不只在硅上，还在"定义下一个主流负载"的能力上。对创业者是更直接的信号：具身智能的退出通道，正在从 IPO 转向被芯片巨头收编。
+      <strong>发生了什么：</strong>一份围绕「harness 工程」的清单，把 Agent 之外的脚手架拆成可讨论的部件：Agent Loop、规划与任务拆解、上下文投递与压缩、工具设计、Skills 与 MCP、权限与授权、记忆与状态、任务执行与编排、验证与 CI 集成、可观测与追踪、调试开发体验、human-in-the-loop。每个条目对应一个已知失败模式，而不是工具名堆砌；另含生成器/元框架、演示 harness、安全沙箱、评测与模板等章节。README 提供中、英、日、德、法、西、韩、葡、俄多语言版本，基本保持日更。<br><br>
+      <strong>为什么值得关注：</strong>这是本周最该<strong>收藏</strong>的一件。它把大家一直靠感觉做的事——提示怎么给、工具怎么切、什么时候必须压缩上下文、什么时候必须让人确认——变成了有分类、有失败模式的目录。你维护 Hermes 技能、给程序加诊断埋点时，可以直接拿它的分类当检查表：其中「验证与 CI」和「可观测」两节，正对着你反复强调的日志、埋点与证据链。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>自己搭 Agent 工作流的人；把 Agent 当生产系统运维的人。<br>
+      <strong>快速开始：</strong>直接读，按目录跳转；里面的论文与实现条目可单点展开。<br>
+      <strong>风险与限制：</strong>清单类项目容易「看着很全、动手很少」；许可证标记为 NOASSERTION，引用其内容时注意标注来源。
     </div>
   </div>
 
   <div class="news-item">
-    <span class="news-tag tag-bigco">大公司</span>
-    <div class="news-title">Meta 成立企业平台业务，把 Muse 代理推进企业的每一个工作位</div>
-    <div class="news-source">来源：CNBC · TechCrunch · Axios · 9月29日</div>
+    <span class="news-tag tag-skills">Apple / Skills</span><span class="rec rec-observe">观察中</span>
+    <div class="news-title">SwiftUI-Agent-Skill —— 专门针对「LLM 写 SwiftUI 真正会犯的错」</div>
+    <div class="proj-meta">
+      <a href="https://github.com/twostraws/SwiftUI-Agent-Skill">twostraws/SwiftUI-Agent-Skill</a>
+      <span class="pill pill-star">5,297 ★</span>
+      <span class="pill">Agent Skills 格式</span>
+      <span class="pill">MIT</span>
+      <span class="pill">最后提交 2026-10-07</span>
+    </div>
     <div class="news-body">
-      <strong>发生了什么：</strong>Meta 宣布成立 Meta Enterprise Platform，由前 MongoDB CEO CJ Desai 领导，内部称之为"下一个主要支柱"，打包 Muse 代理、Meta Business Agent、Muse API 与 Muse Code；次日发布面向小企业的 Muse for Small Business，可连接 Instagram 专业号、Facebook 主页与广告账户，并集成 Canva、Asana、Zoom、Intuit、Box、Slack 等第三方工具。Muse 本月初在美加上线后登顶应用榜，已有超 300 万周活用户。消息公布后 MongoDB 股价当日下跌 16%。<br><br>
-      <strong>为什么重要：</strong>Meta 需要为每年 1000 亿美元以上的 AI 资本开支找到广告以外的收入，而它的打法是"用消费端的规模优势倒灌企业端"——2 亿小企业 + 免费起步 + 已有工具的连接器。<strong>这对 SaaS 是比模型降价更直接的威胁</strong>：如果代理能直接在小企业已有的工具里干活，被替代的就不再是某个模型 API，而是"每个职能买一套软件"的采购逻辑。同日 MongoDB 大跌说明市场已经读懂了这层含义。
+      <strong>发生了什么：</strong>Paul Hudson（Hacking with Swift）出的 SwiftUI 技能，代号 SwiftUI Pro。它不教模型「SwiftUI 是什么」，而是针对 LLM 实际犯的错：API 用法、导航、布局、动画、状态管理、VoiceOver 与可访问性、已废弃 API、性能。使用通用的 Agent Skills 格式，Claude Code / Codex / Gemini / Cursor 都能装；同系列还有 SwiftData Pro、Swift Concurrency Pro、Swift Testing Pro 三个技能，以及一个聚合的 Swift Agent Skills 仓库。<br><br>
+      <strong>为什么值得关注：</strong>对你，它只在<strong>一件事成立时</strong>才有价值：你还继续做原生 Mac App。Hey，Alpaca！ 是 SwiftUI 栈，把这一组技能装进写代码的 Agent，等于给模型预先补上 Apple 平台最常见的坑——尤其「可访问性」和「已废弃 API」两节，正是 LLM 写得最顺手、上线最容易出问题的地方。反过来，如果产品重心继续往云端与生成侧移动，它的优先级就应该下调。这是一个典型的<em>取决于路线</em>的推荐。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>用 AI 写 SwiftUI / SwiftData 的人；做 Mac 原生创意工具的开发者。<br>
+      <strong>快速开始：</strong>`npx skills add https://github.com/twostraws/swiftui-agent-skill --skill swiftui-pro`；Claude Code 用户也可加插件市场后 `/plugin install swiftui-pro@swiftui-agent-skill`。<br>
+      <strong>风险与限制：</strong>技能是知识注入，不校验代码能否编译；Swift 6 并发等新演进需要作者持续跟进；个人项目，节奏取决于作者本人。
     </div>
   </div>
 
+  <!-- ================= CREATIVE ================= -->
+  <div class="cat"><span class="cat-num">04</span> 创意 / 设计 / 摄影 / 视频</div>
+
+  <div class="news-item">
+    <span class="news-tag tag-creative">图像与 3D</span><span class="rec rec-strong">强烈推荐</span>
+    <div class="news-title">ArtCraft —— 「艺术家的 IDE」：先把构图摆定，再让模型生成</div>
+    <div class="proj-meta">
+      <a href="https://github.com/storytold/artcraft">storytold/artcraft</a>
+      <span class="pill pill-star">10,441 ★</span>
+      <span class="pill">Rust</span>
+      <span class="pill">许可证标记 Other / NOASSERTION</span>
+      <span class="pill">最后提交 2026-10-07</span>
+    </div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>自称为「艺术家的 IDE」，做交互式 AI 图像与视频创作：在 2D 里合成、在 3D 里搭景，再选择适合的模型生成。README 列出的能力包括图生场景（把虚拟演员放进一致的房间环境、同场景规划多个镜头）、2D/3D 图像合成、图像转 3D 网格、角色摆姿、用 kitbashing 做场景调度以控制机位与景深、角色身份迁移（用摆好姿势的人台引导角色位置与姿态）、背景分离、混合素材合成。Rust 编写的独立应用，Trendshift 记录它在 2026-10-06 首次进入全语言 Trending 榜。<br><br>
+      <strong>为什么值得关注：</strong>它回答的正是修图师最痛的问题——<strong>生成图不可控</strong>。ArtCraft 的路线不是「更好的提示词」，而是把构图、机位、角色身份这些<strong>在生成之前就用手摆定</strong>，再让模型成为一个可复现的渲染环节。这跟你在 Hey，Alpaca！ 里坚持的「先把版面、坑位、文字位置定下来，再填内容」是同一条逻辑，只是它发生在图像生成层。同一作者还在用 Rust 重写一串创意软件（见下一条），这股潮流本身就是本周最清楚的信号之一。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>需要可控构图、角色一致性与「同场景多镜头」的设计师、摄影师、修图师；想找 PS 之外第二块画布的人。<br>
+      <strong>快速开始：</strong>官网 getartcraft.com 或 GitHub Releases 直接下载，也可从源码构建。<br>
+      <strong>风险与限制：</strong>许可证标记为 Other / NOASSERTION，<em>商用前必须自行核查</em>；重度依赖模型与 GPU，M4 上的实际性能与模型接入方式<em>未核实</em>；是一个体量不小的应用，学习成本不低。
+    </div>
+  </div>
+
+  <div class="news-item">
+    <span class="news-tag tag-creative">视频</span><span class="rec rec-watch">值得关注</span>
+    <div class="news-title">FilmCraft —— 建仓 9 天的「纯 Rust 版 Premiere」，且每个操作都是一条可被 Agent 驱动的命令</div>
+    <div class="proj-meta">
+      <a href="https://github.com/storytold/filmcraft">storytold/filmcraft</a>
+      <span class="pill pill-star">6,503 ★</span>
+      <span class="pill">Rust</span>
+      <span class="pill">Apache-2.0</span>
+      <span class="pill">建仓 2026-09-30 · 最后提交 2026-10-09</span>
+    </div>
+    <div class="news-body">
+      <strong>发生了什么：</strong>与 ArtCraft 同门的「清洁室重写版」非编软件：纯 Rust，原生 macOS / Windows / Linux，也可通过 WebAssembly 跑在浏览器里。技术上几个点很硬——H.264、HEVC、ProRes、AAC 的编解码器是团队按公开规范自己写的；GPU 合成器在线性光下工作；帧运算走精确整数时间，因此剪辑不会随时间漂移；界面刻意对齐 Premiere 的面板、工作区与快捷键，三点编辑、各种修剪、动态修剪、Trim Monitor 都在。README 里最关键的一句是：<strong>App 里的每一个动作都是一条命令，AI Agent 可以像你一样精确驱动它。</strong><br><br>
+      <strong>为什么值得关注：</strong>建仓 9 天就 6.5k 星，说明「Rust 重写专业创意软件」在 2026 年有真实需求，而不是极客自嗨。更值得记住的是它的架构选择——<strong>把 UI 操作全部命令化</strong>，于是 Agent 自动化不是外挂的模拟点击，而是原生能力。这对「让 AI 参与修图/剪辑流程」是个方向性提示：与其让 Agent 去点鼠标，不如让软件本身就可以被命令驱动。
+    </div>
+    <div class="news-body" style="margin-top:14px">
+      <strong>适合谁：</strong>视频剪辑与调色从业者；关注「创意软件如何原生支持 Agent」的产品与工程人员。<br>
+      <strong>快速开始：</strong>GitHub Releases 下载桌面版，或直接用浏览器版；官网在 getartcraft.com。<br>
+      <strong>风险与限制：</strong>9 天的新项目，功能完整度与稳定性都<em>不可能</em>等价于 Premiere，切勿直接进生产流程；编解码器自研意味着格式兼容性需逐一实测；WebAssembly 版本性能未知。
+    </div>
+  </div>
+
+  <!-- ================= FEATURE ================= -->
+  <div class="section-title">本周特别推荐</div>
+  <div class="feature">
+    <h3>深入一个：ArtCraft 值不值得进你的技术储备？</h3>
+    <div class="fsub">storytold/artcraft · 10,441 ★ · Rust · 最后提交 2026-10-07 · 许可证标记 Other</div>
+    <p><strong>它真正卖的是什么。</strong>不是模型，也不是提示词技巧，而是<strong>「在生成之前把不确定性消掉」的工作方式</strong>：用 2D 图层做合成、用 3D 场景定机位与景深、用摆姿人台锁定角色身份，然后才出图。修图师对这套逻辑是熟悉的——这就是图层与蒙版的思路，只是它把图层从二维抬到了三维，并且把「生成」降级成链条中的最后一步。</p>
+    <p><strong>对你为什么相关。</strong>你在 Hey，Alpaca！ 里已经证明过这条路径的价值：先把版面、坑位框、文字位置定好，再往里填内容，结果才可控、可复现。ArtCraft 把同一个原则用在了图像生成上。所以它对你的价值不一定是「换一个工具」，而是<strong>一个可以对照的参考实现</strong>——如果你的产品未来要处理「可控地生成背景/道具/素材」，它示范了交互该怎么设计、控制点该落在哪。</p>
+    <p><strong>该不该动手试。</strong>值得试，但要限定范围：先用它做<strong>一个具体的、你本来要手工合成的镜头</strong>（例如同一房间的第二个机位，或角色姿态一致的延展图），只关注一件事——把构图摆定之后，出图的命中率是否真的比纯提示词高。这是唯一能把「看起来很对」变成「确实有用」的验证方式。</p>
+    <p><strong>该不该进技术储备。</strong>方法论层面：<strong>该</strong>，而且优先级高于工具本身。工具层面：<strong>先观望</strong>——许可证标记为 Other、需要自行核查商用条件，重量级依赖模型与 GPU，M4 上的实际表现没有可查的公开数据。把它当一个持续跟踪的参考，而不是明天就要替换掉的工具。</p>
+  </div>
+
+  <!-- ================= OBSERVATION ================= -->
   <div class="section-title">本周观察</div>
   <div class="observation">
     <h3>🔍 本周观察</h3>
-    <div class="quote-box">撤回的是能力，放开的是自主。这一周，前沿实验室一边对外展示自律，一边把最有风险的产品形态先送上市场。</div>
-    <p>三条线在本周交叠。① <strong>资本线</strong>：Anthropic 用 5180 亿不可撤销承诺把"增长不能停"写进合同，OpenAI 用 300 亿私募把 34 倍收入倍数维持住，英伟达同一天宣布史上最大 1500 亿美元回购（总额升至 2350 亿），一级市场则给了消费级代理 Instinct 一个月内从 25 亿到 100 亿美元的估值跳跃。② <strong>能力线</strong>：前沿模型价格收敛到 $2/$10，模型本身的差异被抹平，竞争转移到分发、代理与成本结构。③ <strong>政治线</strong>：白宫把代理越狱摆上议程，美中 AI 对话提出的也是同一套"事故通报机制"。</p>
-    <p>三条线指向同一件事：<strong>行业已经把赌注押在"自主代理规模化"上，而配套的定价、责任与监管机制，一件都还没定。</strong>本周最诚实的注脚来自行业自己——撤回一个不达标的模型，和发布一个 24 小时不停跑的代理，出自同一家公司、同一天。</p>
-    <p><strong>下周看点：</strong>10 月 14 日 Anthropic 的投资者会议将检验"算力承诺换估值"这套叙事能卖多少钱；而"模型与算力互相锁定"的新结构——OpenAI 的私募、Anthropic 的不可撤销合同、英伟达的回购——会怎样被公开市场的定价逻辑重新审视。</p>
+    <div class="quote-box">模型之外的一切，正在被打包成一门工程学科；而创意软件开始被 Rust 重写，并从第一天起就把自己设计成可以被 Agent 驱动。</div>
+    <p><strong>第一条线：从「比模型」到「比脚手架」。</strong>本周榜单里星标最高的两个项目——一个技能集合和一个 harness 清单——都不包含任何模型。它们卖的是「模型该被怎么用」：上下文怎么投递、工具怎么设计、权限怎么设闸、验证怎么落进 CI。当各家模型价格收敛、能力差距被抹平之后，<strong>可复现性的来源就从权重转移到了脚手架</strong>。这是本周最清楚的一条趋势，也是最容易被忽略的一条。</p>
+    <p><strong>第二条线：分发在变轻，扩展在变重。</strong>Kimi Code 用单二进制 + 免安装 Node 的脚本换掉了一大半环境摩擦；mattpocock/skills 把技能挂进各家的插件市场做自更新；moli 干脆把安装写成一句给 Agent 的提示词。与此同时，扩展侧的治理在变重——Kimi Code 在安装时明示信任级别，awesome-harness-engineering 专门辟出「权限与授权」「安全与沙箱」两节。<strong>装得更容易，管得就要更严，这两件事必须同时发生。</strong></p>
+    <p><strong>第三条线：创意软件被重写，而且原生面向 Agent。</strong>ArtCraft、FilmCraft 同一个团队、同一周、同一个技术选择：Rust、清洁室、精确整数时间、可被命令驱动。FilmCraft 建仓 9 天就 6.5k 星，说明需求是真实的。对做创意工具的人来说，这里有一个很具体的判断——<strong>「让 AI 帮你操作软件」和「让软件本身可被命令驱动」是两条完全不同的路</strong>，后者更难，但更持久。</p>
+    <p><strong>下周看点：</strong>这批项目里最需要在 Real 场景下被质疑的，是「按需渲染的 Agent 浏览器」和「桌面常驻 Agent」这两类——它们都要求把权限交出去一部分。另一件值得盯的事：当 skills 成为主要分发单元之后，谁会先做出一套真正的技能版本管理（可回滚、可审计、可锁定），这可能比再多出十个技能库更重要。</p>
+  </div>
+
+  <div class="section-title">数据说明</div>
+  <div class="method">
+    <strong>数据来源：</strong>GitHub REST API（仓库元数据：星标、fork、语言、许可证、最后提交时间）；GitHub Trending / Topics 页面；Trendshift 日报周榜快照；各项目 README 与 Releases 页面。<br>
+    <strong>核验时间：</strong>2026 年 10 月 10 日。<br>
+    <strong>关于「增长」：</strong>本周<strong>未能获得可独立核验的 7 天星标增量来源</strong>（Trendshift 榜单快照与当前星标的口径无法可靠对齐，star-history 图表不支持程序化读取），因此各项目只列出经 API 核验的<strong>星标总量</strong>，不填写任何未经证实的增量数字。项目活跃度以「最后提交时间」为准，已逐条核验。<br>
+    <strong>关于表述：</strong>凡属项目方自述或第三方博客口径的数据（如 open-code-review 的 F1 与 token 消耗对比），文中已明确标注，未作为已证事实陈述；凡本机未实际运行验证的项目，均标注「未实测」。
   </div>
 
   <div class="footer">
-    数据来源：Reuters · Bloomberg · CNBC · TechCrunch · Fortune · Axios · The Verge · The Decoder · Google DeepMind · AMD · Mashable · 2026年9月28日 – 10月4日<br>
+    数据来源：GitHub REST API · GitHub Trending · Trendshift · 各项目 README / Releases · 2026年10月5日 – 10月10日<br>
     本页由 Hermes Agent 自动生成 · <a href="https://83494660.github.io/AI-Weekly/">https://83494660.github.io/AI-Weekly/</a>
   </div>
 
